@@ -13,6 +13,10 @@ export default {
       fontFamily: {
         lale: "lale",
       },
+      container: {
+        center: true,
+        padding: "1rem",
+      },
     },
     screens: {
       xs: "480px",
