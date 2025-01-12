@@ -3,14 +3,21 @@ import { Link, NavLink } from "react-router-dom";
 
 function Header() {
   return (
-    <header className="pt-3">
-      <div className="container flex justify-between items-center">
-        <Link to="/" className="flex items-center gap-x-2 text-3xl">
-          <img src="/openmoji_roasted-coffee-bean.png" alt="" />
-          میم کافه
+    <header>
+      {/* 
+            Desktop Header
+        */}
+      <div className="container hidden md:flex justify-between items-center pt-3">
+        <Link to="/" className="flex items-center max-w-25">
+          <img
+            src="/openmoji_roasted-coffee-bean.png"
+            alt=""
+            className="w-10 h-10"
+          />
+          <h1 className="block text-2xl xl:text-3xl">میم کافه</h1>
         </Link>
-        <nav className="w-[700px]">
-          <ul className="flex justify-between px-8 py-3 rounded-full text-brown-light bg-brown-dark text-xl overflow-hidden">
+        <nav className="w-[600px] xl:w-[700px]">
+          <ul className="flex justify-between px-8 py-3 rounded-full text-brown-light bg-brown-medium text-lg xl:text-xl">
             <li className="">
               <NavLink to="/">صفحه اصلی</NavLink>
             </li>
@@ -28,7 +35,7 @@ function Header() {
             </li>
           </ul>
         </nav>
-        <div className="flex gap-x-4">
+        <div className="flex gap-x-2 xl:gap-x-4 mr-4 xl:mr-0">
           <Link
             to="/login"
             className="flex gap-x-2 border border-brown-dark rounded-full px-2 py-3 transition-colors hover:bg-brown-dark hover:text-brown-light"
@@ -36,7 +43,7 @@ function Header() {
             <svg className="w-5 h-5">
               <use href="#user"></use>
             </svg>
-            ورود / ثبت نام
+            <span className="hidden xl:block">ورود / ثبت نام</span>
           </Link>
           <Link
             to="/basket"
@@ -45,8 +52,28 @@ function Header() {
             <svg className="w-5 h-5">
               <use href="#basket"></use>
             </svg>
-            <span className="text-white">0 تومان</span>
+            <span className="hidden xl:block text-white">0 تومان</span>
           </Link>
+        </div>
+      </div>
+
+      {/* 
+            Mobile Header      
+      */}
+      <div className="flex md:hidden justify-between items-center bg-brown-medium px-4">
+        <div className="bg-brown-light rounded-full p-1 cursor-pointer flex items-center justify-center">
+          <svg className="w-6 h-6">
+            <use href="#3-line-menu"></use>
+          </svg>
+        </div>
+        <Link to="/" className="flex items-center">
+          <img src="/openmoji_roasted-coffee-bean.png" alt="" />
+          <h1 className="text-xl">میم کافه</h1>
+        </Link>
+        <div className="bg-brown-light rounded-full p-1 cursor-pointer flex items-center justify-center">
+          <svg className="w-6 h-6">
+            <use href="#basket"></use>
+          </svg>
         </div>
       </div>
     </header>
