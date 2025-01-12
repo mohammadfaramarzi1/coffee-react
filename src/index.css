@@ -8,3 +8,18 @@
     src: url("./assets/fonts/Lalezar-Regular.ttf");
   }
 }
+
+@layer components {
+  .overlay {
+    @apply hidden fixed w-full h-full bg-[#3333333e] inset-0 z-10 invisible opacity-0;
+  }
+  .overlay--show {
+    @apply block visible opacity-100;
+  }
+  .card-basket {
+    @apply hidden opacity-0 invisible absolute bg-brown-medium rounded-md top-20 left-3 mx-auto w-48 h-48 p-3 text-white z-20;
+  }
+  .card-basket--show {
+    @apply block visible opacity-100
+  }
+}
