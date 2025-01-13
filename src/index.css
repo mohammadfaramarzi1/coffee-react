@@ -5,7 +5,7 @@
 @layer base {
   @font-face {
     font-family: "lale";
-    src: url("./assets/fonts/Lalezar-Regular.ttf");
+    src: url("/assets/fonts/Lalezar-Regular.ttf");
   }
 }
 
