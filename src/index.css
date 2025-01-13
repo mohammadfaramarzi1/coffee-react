@@ -11,15 +11,27 @@
 
 @layer components {
   .overlay {
-    @apply hidden fixed w-full h-full bg-[#3333333e] inset-0 z-10 invisible opacity-0;
+    @apply hidden fixed w-full h-full bg-[#3333333e] inset-0 z-10 invisible opacity-0 transition-all delay-75;
   }
   .overlay--show {
     @apply block visible opacity-100;
   }
   .card-basket {
-    @apply hidden opacity-0 invisible absolute bg-brown-medium rounded-md top-20 left-3 mx-auto w-48 h-48 p-3 text-white z-20;
+    @apply hidden opacity-0 invisible absolute bg-brown-medium rounded-md top-20 left-3 mx-auto w-48 h-48 p-3 text-white z-20 transition-all delay-75;
   }
   .card-basket--show {
-    @apply block visible opacity-100
+    @apply block visible opacity-100;
+  }
+  .card-basket-mobile {
+    @apply flex flex-col justify-between items-start fixed -left-[233px] top-0 bottom-0 bg-brown-medium h-full text-white p-3 z-20 transition-all delay-75;
+  }
+  .card-basket-mobile--show {
+    @apply flex left-0;
+  }
+  .mobile-nav {
+    @apply hidden fixed bg-brown-medium h-full -right-[126px] top-0 bottom-0 w-[200px] p-3 text-white z-20 transition-all delay-75;
+  }
+  .mobile-nav--show {
+    @apply block right-0;
   }
 }
