@@ -6,7 +6,7 @@ function Heading({title}) {
         <svg className='w-14 h-14 mx-auto'>
             <use href='#category-coffee'></use>
         </svg>
-        <h3 className='text-xl md:text-2xl'>{title}</h3>
+        <h3 className='text-xl md:text-2xl text-center'>{title}</h3>
     </div>
   )
 }
