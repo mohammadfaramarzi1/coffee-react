@@ -2,11 +2,10 @@ import React from "react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode, Autoplay } from "swiper/modules";
-import { Link } from "react-router-dom";
+import ProductBox from "./ProductBox";
 
 import "swiper/css";
 import "swiper/css/free-mode";
-import ProductBox from "./ProductBox";
 
 function SpecialOffers() {
   return (

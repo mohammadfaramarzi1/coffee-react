@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 @layer base {
-  body{
+  body {
     padding-bottom: 100px;
   }
   @font-face {
