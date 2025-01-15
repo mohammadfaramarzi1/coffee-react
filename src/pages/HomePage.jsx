@@ -6,6 +6,7 @@ import Category from "../components/Category";
 import SpecialOffers from "../components/SpecialOffers";
 import MostSale from "../components/MostSale";
 import Brands from "../components/Brands";
+import Introduce from "../components/Introduce";
 
 function HomePage() {
   return (
@@ -16,6 +17,7 @@ function HomePage() {
       <SpecialOffers />
       <MostSale />
       <Brands />
+      <Introduce />
     </>
   );
 }
