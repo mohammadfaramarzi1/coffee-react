@@ -5,6 +5,7 @@ import Banner from "../components/Banner";
 import Category from "../components/Category";
 import SpecialOffers from "../components/SpecialOffers";
 import MostSale from "../components/MostSale";
+import Brands from "../components/Brands";
 
 function HomePage() {
   return (
@@ -14,6 +15,7 @@ function HomePage() {
       <Category />
       <SpecialOffers />
       <MostSale />
+      <Brands />
     </>
   );
 }
