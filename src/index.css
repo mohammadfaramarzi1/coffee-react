@@ -3,9 +3,6 @@
 @tailwind utilities;
 
 @layer base {
-  body {
-    padding-bottom: 100px;
-  }
   @font-face {
     font-family: "lale";
     src: url("/assets/fonts/Lalezar-Regular.ttf");

@@ -8,6 +8,7 @@ import MostSale from "../components/MostSale";
 import Brands from "../components/Brands";
 import Introduce from "../components/Introduce";
 import ArticlesSlider from "../components/ArticlesSlider";
+import Footer from "../components/Footer";
 
 function HomePage() {
   return (
@@ -20,6 +21,7 @@ function HomePage() {
       <Brands />
       <Introduce />
       <ArticlesSlider />
+      <Footer />
     </>
   );
 }

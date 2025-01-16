@@ -12,10 +12,15 @@ function Introduce() {
           اطمینان می‌دهیم. تخصص ما در ترکیب بی‌نظیر علم قهوه با تجربه رستورانی،
           تجربه‌ی بی‌نظیری را برای شما ایجاد خواهیم کرد.
         </p>
-        <Link to="/about" className="bg-brown-medium rounded-full w-32 h-10 !leading-10 text-center hover:text-brown-dark transition-colors text-sm md:text-lg mx-auto sm:mr-0">درباره ما</Link>
+        <Link
+          to="/about"
+          className="bg-brown-medium rounded-full w-32 h-10 !leading-10 text-center hover:text-brown-dark transition-colors text-sm md:text-lg mx-auto sm:mr-0"
+        >
+          درباره ما
+        </Link>
       </div>
       <div className="flex items-center justify-center mb-5 sm:mb-0">
-        <img src="../../public/images/Border (1).png" alt="" />
+        <img src="/images/Border (1).png" alt="" />
       </div>
     </div>
   );

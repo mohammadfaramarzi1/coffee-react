@@ -2,11 +2,10 @@ import React from "react";
 
 import { Link } from "react-router-dom";
 
-
 function ArticleSlider() {
   return (
     <div className="bg-brown-light rounded-md w-[210px] p-2 ms-auto">
-      <img src="../../public/images/Frame 54.png" alt="" />
+      <img src="/images/Frame 54.png" alt="" />
       <p className="text-sm text-justify my-4">
         لورم ایپسوم متن ساختگی برای طراحان میباشد که با استفاده از آن متن تستی
         مینویسند!

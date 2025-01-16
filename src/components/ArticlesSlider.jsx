@@ -6,6 +6,7 @@ import { FreeMode, Autoplay } from "swiper/modules";
 
 import "swiper/css";
 import "swiper/css/free-mode";
+import { Link } from "react-router-dom";
 
 function ArticlesSlider() {
   return (
@@ -55,6 +56,15 @@ function ArticlesSlider() {
           </SwiperSlide>
         </Swiper>
       </div>
+      <Link
+        to="/articles"
+        className="flex items-center justify-between px-2 mx-auto mt-48 text-white hover:text-brown-dark transition-colors bg-brown-medium h-[50px] w-[210px] rounded-full"
+      >
+        مشاهده بیشر
+        <svg className="w-6 h-6">
+          <use href="#arrow-left"></use>
+        </svg>
+      </Link>
     </div>
   );
 }

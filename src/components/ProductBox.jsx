@@ -6,7 +6,7 @@ function ProductBox() {
     <div className="border border-brown-dark w-[200px] bg-white text-brown-dark rounded-md pt-10 pb-3 px-6">
       <Link to="/products">
         <div className="relative flex items-center justify-center">
-          <img src="../../public/images/image 13 (2).png" alt="" />
+          <img src="/images/image 13 (2).png" alt="" />
           <span className="absolute -top-5 -left-4 bg-brown-light rounded-full p-1">
             10%
           </span>
