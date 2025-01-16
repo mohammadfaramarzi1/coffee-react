@@ -46,7 +46,7 @@ function Footer() {
             alt=""
             className="w-10 h-10"
           />
-          <h1 className="block text-xl xl:text-4xl">میم کافه</h1>
+          <h1 className="block text-xl xl:text-3xl">میم کافه</h1>
         </Link>
         <div className="flex justify-between gap-x-5">
           <Link to="https://www.instagram.com/" className="hover:text-brown-medium transition-colors">

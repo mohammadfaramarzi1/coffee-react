@@ -13,7 +13,6 @@ import Footer from "../components/Footer";
 function HomePage() {
   return (
     <>
-      <Header />
       <Banner />
       <Category />
       <SpecialOffers />
@@ -21,7 +20,6 @@ function HomePage() {
       <Brands />
       <Introduce />
       <ArticlesSlider />
-      <Footer />
     </>
   );
 }
