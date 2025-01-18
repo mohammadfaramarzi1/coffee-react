@@ -2,7 +2,7 @@ import React from "react";
 
 function CategoryList() {
   return (
-    <div className="bg-brown-medium mb-10 py-4 px-2 rounded-md flex justify-between">
+    <div className="bg-brown-medium py-4 px-2 rounded-md flex flex-col gap-y-2 sm:gap-y-0 sm:flex-row justify-between">
       <div className="flex gap-x-1">
         <svg className="w-6 h-6">
           <use href="#category"></use>
