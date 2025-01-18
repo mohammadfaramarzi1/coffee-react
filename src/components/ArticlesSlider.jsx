@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 
 function ArticlesSlider() {
   return (
-    <div className="container relative bg-brown-medium mt-16 text-center rounded-md text-lg pt-2 h-64">
+    <div className="container mb-[250px] relative bg-brown-medium mt-16 text-center rounded-md text-lg pt-2 h-64">
       <h3>مقالات میم کافه</h3>
       <div className="flex justify-between child:h-[200px]">
         <svg>

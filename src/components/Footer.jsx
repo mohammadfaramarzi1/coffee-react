@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function Footer() {
   return (
-    <footer className="bg-[#333] mt-[250px] text-white py-5 px-12">
+    <footer className="bg-[#333] text-white py-5 px-12">
       <div className="flex justify-between gap-y-5 sm:gap-y-0 flex-wrap border-b border-brown-medium pb-8 mb-8">
         <div className="flex items-center gap-x-2.5">
           <div className="bg-brown-medium w-[70px] h-[70px] rounded-full flex items-center justify-center">
@@ -46,7 +46,7 @@ function Footer() {
             alt=""
             className="w-10 h-10"
           />
-          <h1 className="block text-xl xl:text-3xl">میم کافه</h1>
+          <h1 className="block text-xl xl:text-xl">میم کافه</h1>
         </Link>
         <div className="flex justify-between gap-x-5">
           <Link to="https://www.instagram.com/" className="hover:text-brown-medium transition-colors">
