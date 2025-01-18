@@ -11,16 +11,16 @@ function CategoryList() {
       </div>
       <ul className="flex items-center gap-x-4">
         <li>
-          <button className="text-white">همه ی محصولات</button>
+          <button className="text-white hover:text-brown-light transition-colors">همه ی محصولات</button>
         </li>
         <li>
-          <button className="text-white">دانه قهوه</button>
+          <button className="text-white hover:text-brown-light transition-colors">دانه قهوه</button>
         </li>
         <li>
-          <button className="text-white">پودریجات</button>
+          <button className="text-white hover:text-brown-light transition-colors">پودریجات</button>
         </li>
         <li>
-          <button className="text-white">اکسسوری</button>
+          <button className="text-white hover:text-brown-light transition-colors">اکسسوری</button>
         </li>
       </ul>
     </div>

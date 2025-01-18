@@ -29,10 +29,10 @@ function DesktopHeader({overlayHandler, cardBasketElem, closeBasketHandler}) {
           </li>
           <li>
             <NavLink
-              to="/services"
+              to="/articles"
               className="hover:text-[#ebdcad] transition-colors"
             >
-              خدمات
+              مقالات
             </NavLink>
           </li>
           <li>
