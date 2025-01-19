@@ -1,6 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
+import AOS from "aos";
+
+import "aos/dist/aos.css";
 
 function ProductDetailFeatures() {
+  useEffect(() => {
+    AOS.init();
+  }, []);
   return (
     <div className="container my-10 flex justify-between flex-wrap">
       <div className="flex gap-x-4">
@@ -65,7 +71,11 @@ function ProductDetailFeatures() {
           </div>
         </div>
       </div>
-      <div className="flex flex-wrap flex-row justify-center gap-x-3 gap-y-3 lg:flex-col mt-5 lg:mt-0">
+      <div
+        data-aos="zoom-in-right"
+        data-aos-duration="2000"
+        className="flex flex-wrap flex-row justify-center gap-x-3 gap-y-3 lg:flex-col mt-5 lg:mt-0"
+      >
         <div className="bg-gray-100 flex items-center justify-center text-center lg:text-right flex-wrap text-zinc-800 w-100px h-[90px] rounded-md gap-x-2 p-1">
           <div>
             <svg className="w-9 h-8">
