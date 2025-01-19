@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function Login() {
+function Register() {
   return (
     <div className="bg-[#FFF8F5] flex flex-col justify-center items-center text-center h-screen">
       <div className="pt-5">
@@ -20,7 +20,7 @@ function Login() {
             <use href="#category-coffee"></use>
           </svg>
         </div>
-        <h2 className="my-5 text-xl">ورود</h2>
+        <h2 className="my-5 text-xl">ثبت نام</h2>
         <input
           type="text"
           placeholder="نام کاربری"
@@ -37,18 +37,18 @@ function Login() {
           className="block my-5 border border-brown-dark rounded-md px-4 py-1 outline-none"
         />
         <button className="bg-brown-medium w-full rounded-md text-white hover:text-brown-dark transition-colors">
-          ورود
+          ثبت نام
         </button>
-        <p className="mt-5 mb-1">آیا حساب کاربری ندارید؟</p>
+        <p className="mt-5 mb-1">آیا حساب کاربری دارید؟</p>
         <Link
-          to="/register"
+          to="/login"
           className="block bg-brown-medium w-full rounded-md text-white hover:text-brown-dark transition-colors"
         >
-          ثبت نام
+          ورود
         </Link>
       </div>
     </div>
   );
 }
 
-export default Login;
+export default Register;
