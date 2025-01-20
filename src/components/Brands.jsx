@@ -7,7 +7,7 @@ function Brands() {
   return (
     <div className="container mt-16">
       <Heading title="قهوه ها بر اساس برند" />
-      <div className="flex flex-wrap gap-y-5 justify-between mt-5 child:border child:border-brown-dark child:rounded-full child:p-2 child:text-center">
+      <div className="flex flex-wrap gap-5 justify-center mt-5 child:border child:border-brown-dark child:rounded-full child:p-2 child:text-center">
         <Link to="/products">
           <img src="/images/Figure → Frame-14.png.png" alt="" />
           <span>Griffon</span>

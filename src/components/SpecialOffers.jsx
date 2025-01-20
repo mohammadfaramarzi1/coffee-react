@@ -6,12 +6,8 @@ import ProductBox from "./ProductBox";
 
 import "swiper/css";
 import "swiper/css/free-mode";
-import { useProducts } from "../context/ProductsProvider";
 
-function SpecialOffers() {
-  const products = useProducts();
-  console.log(products);
-
+function SpecialOffers({ products }) {
   return (
     <div
       data-aos="zoom-in-out"
@@ -25,16 +21,6 @@ function SpecialOffers() {
         <img src="/images/Mask group.png" alt="" />
       </div>
       <div className="absolute bg-brown-medium w-[300px] sm:w-[500px] md:w-[700px] -bottom-[200px] sm:-bottom-[240px] right-0 left-0 mx-auto rounded-lg p-5">
-        <div className="flex justify-evenly pb-3 border-b border-b-brown-light">
-          <h4 className="text-xs md:text-lg">دسته بندی ها</h4>
-          <div className="flex gap-x-5 text-xs md:text-lg">
-            <button className="active" type="button">
-              دانه قهوه
-            </button>
-            <button type="button">پودریجات</button>
-            <button type="button">اکسسوری</button>
-          </div>
-        </div>
         <div className="mt-5">
           <Swiper
             autoplay={{

@@ -1,25 +1,22 @@
 import React from "react";
-import Heading from "../shared/Heading";
 import { Link } from "react-router-dom";
+
+import Heading from "../shared/Heading";
 import ProductBox from "./ProductBox";
 
-function MostSale() {
+function MostSale({ products }) {
   return (
     <div className="container mt-[300px]">
       <Heading title="پر فروش ترین محصولات" />
       <div className="flex flex-wrap justify-center sm:justify-between gap-5 mt-5">
-        <ProductBox />
-        <ProductBox />
-        <ProductBox />
-        <ProductBox />
-        <ProductBox />
-        <ProductBox />
-        <ProductBox />
-        <ProductBox />
-        <ProductBox />
-        <ProductBox />
+        {products.slice(0, 6).map((product) => (
+          <ProductBox key={product.id} {...product} />
+        ))}
       </div>
-      <Link to="/products" className="flex items-center justify-between px-2 mx-auto mt-8 text-white hover:text-brown-dark transition-colors bg-brown-medium h-[50px] w-[210px] rounded-full">
+      <Link
+        to="/products"
+        className="flex items-center justify-between px-2 mx-auto mt-8 text-white hover:text-brown-dark transition-colors bg-brown-medium h-[50px] w-[210px] rounded-full"
+      >
         مشاهده بیشر
         <svg className="w-6 h-6">
           <use href="#arrow-left"></use>
