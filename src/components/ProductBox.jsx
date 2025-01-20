@@ -1,26 +1,24 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function ProductBox() {
+function ProductBox({ id, title, img, beand, percent, preprice, newprice }) {
   return (
     <div className="border border-brown-dark w-[200px] bg-white text-brown-dark rounded-md pt-10 pb-3 px-6">
-      <Link to="/products">
+      <Link to={`/products/${id}`}>
         <div className="relative flex items-center justify-center">
-          <img src="/images/image 13 (2).png" alt="" />
+          <img src={img} alt={title} className="w-[130px] h-[210px]" />
           <span className="absolute -top-5 -left-4 bg-brown-light rounded-full p-1">
-            10%
+            {percent}%
           </span>
         </div>
-        <h3 className="text-sm my-3 text-center">
-          دانه قهوه باکسی برند Boxilian
-        </h3>
+        <h3 className="text-sm my-3 text-center">{title}</h3>
         <div className="text-xs flex justify-between">
-          <span className="text-brown-medium">دانه قهوه</span>
+          <span className="text-brown-medium">{beand}</span>
           <div className="flex flex-col">
             <span className="line-through text-brown-medium">
-              340,000 تومان
+              {preprice} تومان
             </span>
-            <span>240,000 تومان</span>
+            <span>{newprice} تومان</span>
           </div>
         </div>
       </Link>

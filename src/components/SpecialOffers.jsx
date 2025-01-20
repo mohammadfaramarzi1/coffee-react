@@ -57,27 +57,11 @@ function SpecialOffers() {
             modules={[FreeMode, Autoplay]}
             className="mySwiper"
           >
-            <SwiperSlide>
-              <ProductBox />
-            </SwiperSlide>
-            <SwiperSlide>
-              <ProductBox />
-            </SwiperSlide>
-            <SwiperSlide>
-              <ProductBox />
-            </SwiperSlide>
-            <SwiperSlide>
-              <ProductBox />
-            </SwiperSlide>
-            <SwiperSlide>
-              <ProductBox />
-            </SwiperSlide>
-            <SwiperSlide>
-              <ProductBox />
-            </SwiperSlide>
-            <SwiperSlide>
-              <ProductBox />
-            </SwiperSlide>
+            {products.map((product) => (
+              <SwiperSlide key={product.id}>
+                <ProductBox {...product} />
+              </SwiperSlide>
+            ))}
           </Swiper>
         </div>
       </div>
