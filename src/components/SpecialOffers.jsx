@@ -7,7 +7,7 @@ import ProductBox from "./ProductBox";
 import "swiper/css";
 import "swiper/css/free-mode";
 
-function SpecialOffers({ products }) {
+function SpecialOffers() {
   return (
     <div
       data-aos="zoom-in-out"

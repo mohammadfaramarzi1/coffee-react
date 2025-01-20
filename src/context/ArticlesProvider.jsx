@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 import BASE_URL from "../utils/url";
 
-const ArticlesContext = createContext();
+export const ArticlesContext = createContext();
 
 function ArticlesProvider({ children }) {
   const [articles, setArticles] = useState([]);
@@ -19,10 +19,4 @@ function ArticlesProvider({ children }) {
   );
 }
 
-const useArticles = () => {
-  const articles = useContext(ArticlesContext);
-  return [articles];
-};
-
-export { useArticles };
 export default ArticlesProvider;

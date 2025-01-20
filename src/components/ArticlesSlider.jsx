@@ -1,14 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 
 import ArticleSlider from "./ArticleSlider";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode, Autoplay } from "swiper/modules";
+import { Link } from "react-router-dom";
+import { ArticlesContext } from "../context/ArticlesProvider";
 
 import "swiper/css";
 import "swiper/css/free-mode";
-import { Link } from "react-router-dom";
 
 function ArticlesSlider() {
+  const articles = useContext(ArticlesContext);
+  console.log(articles);
+
   return (
     <div className="container mb-[250px] relative bg-brown-medium mt-16 text-center rounded-md text-lg pt-2 h-64">
       <h3>مقالات میم کافه</h3>
@@ -39,21 +43,11 @@ function ArticlesSlider() {
           modules={[FreeMode, Autoplay]}
           className="mySwiper"
         >
-          <SwiperSlide>
-            <ArticleSlider />
-          </SwiperSlide>
-          <SwiperSlide>
-            <ArticleSlider />
-          </SwiperSlide>
-          <SwiperSlide>
-            <ArticleSlider />
-          </SwiperSlide>
-          <SwiperSlide>
-            <ArticleSlider />
-          </SwiperSlide>
-          <SwiperSlide>
-            <ArticleSlider />
-          </SwiperSlide>
+          {articles.map((article) => (
+            <SwiperSlide key={article.id}>
+              <ArticleSlider {...article} />
+            </SwiperSlide>
+          ))}
         </Swiper>
       </div>
       <Link

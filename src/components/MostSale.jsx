@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import Heading from "../shared/Heading";
 import ProductBox from "./ProductBox";
 
-function MostSale({ products }) {
+function MostSale() {
   return (
     <div className="container mt-[300px]">
       <Heading title="پر فروش ترین محصولات" />

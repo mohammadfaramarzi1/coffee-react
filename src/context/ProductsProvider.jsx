@@ -3,7 +3,7 @@ import BASE_URL from "../utils/url";
 
 const ProductsContext = createContext();
 
-function ProductsProvider({ children }) {
+function ProductsProvider({ children = null }) {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -19,10 +19,10 @@ function ProductsProvider({ children }) {
   );
 }
 
-const useProducts = () => {
-  const products = useContext(ProductsContext);
-  return [products];
-};
+// const useProducts = () => {
+//   const products = useContext(ProductsContext);
+//   return products;
+// };
 
-export { useProducts };
+// export { useProducts };
 export default ProductsProvider;

@@ -8,17 +8,16 @@ import MostSale from "../components/MostSale";
 import Brands from "../components/Brands";
 import Introduce from "../components/Introduce";
 import ArticlesSlider from "../components/ArticlesSlider";
-import { useProducts } from "../context/ProductsProvider";
 
 function HomePage() {
-  const products = useProducts();
+  // const products = useProducts();
 
   return (
     <>
       <Banner />
       <Category />
-      <SpecialOffers products={products} />
-      <MostSale products={products} />
+      <SpecialOffers />
+      <MostSale  />
       <Brands />
       <Introduce />
       <ArticlesSlider />
