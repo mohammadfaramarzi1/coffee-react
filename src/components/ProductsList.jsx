@@ -1,5 +1,6 @@
 import React from "react";
 import ProductBox from "./ProductBox";
+import useProducts from "../context/ProductsProvider";
 
 function ProductsList() {
   return (

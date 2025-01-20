@@ -20,8 +20,8 @@ function ProductsProvider({ children }) {
 }
 
 const useProducts = () => {
-  const result = useContext(ProductsContext);
-  return result;
+  const products = useContext(ProductsContext);
+  return [products];
 };
 
 export { useProducts };
