@@ -6,10 +6,17 @@ import ProductBox from "./ProductBox";
 
 import "swiper/css";
 import "swiper/css/free-mode";
+import { useProducts } from "../context/ProductsProvider";
 
 function SpecialOffers() {
+  const products = useProducts();
+  console.log(products);
+
   return (
-    <div data-aos="zoom-in-out" className="relative container flex flex-col h-[300px] bg-brown-dark text-brown-light rounded-lg mt-10 p-5 w-[350px] sm:w-[600px] md:w-[800px]">
+    <div
+      data-aos="zoom-in-out"
+      className="relative container flex flex-col h-[300px] bg-brown-dark text-brown-light rounded-lg mt-10 p-5 w-[350px] sm:w-[600px] md:w-[800px]"
+    >
       <h3 className="text-lg md:text-xl text-center my-3 block">
         تخفیفات ویژه
       </h3>

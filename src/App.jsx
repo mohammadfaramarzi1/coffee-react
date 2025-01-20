@@ -1,13 +1,16 @@
 import "./App.css";
+import ProductsProvider from "./context/ProductsProvider";
 import Layout from "./layouts/Layout";
 import Router from "./Router";
 
 function App() {
   return (
     <>
-      <Layout>
-        <Router />
-      </Layout>
+      <ProductsProvider>
+        <Layout>
+          <Router />
+        </Layout>
+      </ProductsProvider>
     </>
   );
 }
