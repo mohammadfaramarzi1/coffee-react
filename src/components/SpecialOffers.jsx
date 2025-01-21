@@ -7,7 +7,7 @@ import ProductBox from "./ProductBox";
 import "swiper/css";
 import "swiper/css/free-mode";
 
-function SpecialOffers() {
+function SpecialOffers({ products, dispatch }) {
   return (
     <div
       data-aos="zoom-in-out"
@@ -21,7 +21,7 @@ function SpecialOffers() {
         <img src="/images/Mask group.png" alt="" />
       </div>
       <div className="absolute bg-brown-medium w-[300px] sm:w-[500px] md:w-[700px] -bottom-[200px] sm:-bottom-[240px] right-0 left-0 mx-auto rounded-lg p-5">
-        {/* <div className="mt-5">
+        <div className="mt-5">
           <Swiper
             autoplay={{
               delay: 2500,
@@ -49,7 +49,7 @@ function SpecialOffers() {
               </SwiperSlide>
             ))}
           </Swiper>
-        </div> */}
+        </div>
       </div>
     </div>
   );

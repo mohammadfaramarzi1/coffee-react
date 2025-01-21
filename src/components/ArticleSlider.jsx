@@ -2,7 +2,7 @@ import React from "react";
 
 import { Link } from "react-router-dom";
 
-function ArticleSlider({ id, title, createdAt, desc, img }) {
+function ArticleSlider({ id, title, createdAt, img }) {
   return (
     <div className="bg-brown-light rounded-md w-[210px] h-[245px] p-2 ms-auto flex flex-col justify-between">
       <img src={img} alt={title} />
@@ -17,7 +17,7 @@ function ArticleSlider({ id, title, createdAt, desc, img }) {
             <use href="#arrow-left"></use>
           </svg>
         </Link>
-        <span className="text-xs">19 اردیبهشت 1402</span>
+        <span className="text-xs">{createdAt}</span>
       </div>
     </div>
   );

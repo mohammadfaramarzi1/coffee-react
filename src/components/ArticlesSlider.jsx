@@ -11,7 +11,6 @@ import "swiper/css/free-mode";
 
 function ArticlesSlider() {
   const articles = useContext(ArticlesContext);
-  console.log(articles);
 
   return (
     <div className="container mb-[250px] relative bg-brown-medium mt-16 text-center rounded-md text-lg pt-2 h-64">
