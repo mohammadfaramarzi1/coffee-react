@@ -3,11 +3,14 @@ import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode, Autoplay } from "swiper/modules";
 import ProductBox from "./ProductBox";
+import { useProducts } from "../context/ProductsProvider";
 
 import "swiper/css";
 import "swiper/css/free-mode";
 
-function SpecialOffers({ products, dispatch }) {
+function SpecialOffers() {
+  const [state, dispatch, products] = useProducts();
+
   return (
     <div
       data-aos="zoom-in-out"

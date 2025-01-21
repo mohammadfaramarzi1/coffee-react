@@ -8,18 +8,14 @@ import MostSale from "../components/MostSale";
 import Brands from "../components/Brands";
 import Introduce from "../components/Introduce";
 import ArticlesSlider from "../components/ArticlesSlider";
-import { useProducts } from "../context/ProductsProvider";
 
 function HomePage() {
-  const [state, dispatch, products] = useProducts();
-  console.log(products);
-
   return (
     <>
       <Banner />
       <Category />
-      <SpecialOffers products={products} dispatch={dispatch} />
-      <MostSale products={products} dispatch={dispatch} />
+      <SpecialOffers />
+      <MostSale />
       <Brands />
       <Introduce />
       <ArticlesSlider />

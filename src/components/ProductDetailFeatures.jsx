@@ -2,74 +2,89 @@ import React, { useEffect } from "react";
 import AOS from "aos";
 
 import "aos/dist/aos.css";
+import { useParams } from "react-router-dom";
+import Loader from "./Loader";
 
-function ProductDetailFeatures() {
+function ProductDetailFeatures({ products, dispatch }) {
+  const { id } = useParams();
+
+  const mainProduct = products.find((product) => product.id === id);
+
+  console.log(mainProduct);
+
   useEffect(() => {
     AOS.init();
   }, []);
   return (
     <div className="container my-10 flex justify-between flex-wrap">
-      <div className="flex gap-x-4">
-        <div className="relative border border-brwon-dark rounded-md w-[250px] md:w-[350px] h-[260px] sm:h-[350px] py-2 md:py-4">
-          <span className="absolute top-2 left-2 md:top-5 md:left-5 bg-brown-light rounded-full p-1">
-            20%
-          </span>
-          <img
-            src="/images/image 13 (2).png"
-            alt=""
-            className="w-[140px] md:w-[158px] h-full m-auto"
-          />
-          <div className="absolute bottom-2 md:bottom-5 right-2 md:right-5 bg-brown-medium rounded-full p-1">
-            <svg className="w-6 h-6">
-              <use href="#zoom"></use>
-            </svg>
-          </div>
-        </div>
-        <div className="flex flex-col justify-between">
-          <h2 className="text-xl md:text-2xl">دانه قهوه باکسی برند Boxilian</h2>
-          <h3 className="text-lg md:text-xl text-brown-medium my-3">
-            ویژگی های محصول
-          </h3>
-          <h4 className="text-sm">
-            <span className="text-brown-medium">جنس محصول: </span>آلومینوم خالص
-            ۱۰۰٪
-          </h4>
-          <h4 className="text-sm">
-            <span className="text-brown-medium">کارایی: </span>استفاده روزمره
-          </h4>
-          <h4 className="text-sm">
-            <span className="text-brown-medium">اندازه: </span>۵۰۰ گرم
-          </h4>
-          <h4 className="text-sm">
-            <span className="text-brown-medium">نوع محصول: </span>روبوستا
-          </h4>
-          <h4 className="text-sm">
-            <span className="text-brown-medium">نوع بسته بندی: </span>کاغذی
-          </h4>
-          <div className="bg-brown-light flex items-center flex-col sm:flex-row gap-x-2 mt-3 md:mt-0 md:gap-x-3 rounded-md p-1 md:p-2">
-            <div className="flex items-center flex-col sm:flex-row gap-x-1 md:gap-x-3">
-              <button className="bg-brown-medium rounded-lg px-4 py-1 text-white hover:text-brown-dark transition-colors">
-                افزودن به سبد خرید
-              </button>
-              <div className="flex items-center gap-x-1 my-2 sm:my-0">
-                <button className="bg-brown-medium rounded-full flex items-center justify-center p-2 w-6 h-6">
-                  <svg className="w-3 h-3">
-                    <use href="#plus"></use>
-                  </svg>
-                </button>
-                <span>1</span>
-                <button className="bg-brown-medium rounded-full flex items-center justify-center p-2 w-6 h-6">
-                  <svg className="w-3 h-1">
-                    <use href="#minus"></use>
-                  </svg>
-                </button>
-              </div>
+      {/* <div className="flex gap-x-4">
+          <div className="relative border border-brwon-dark rounded-md w-[250px] md:w-[350px] h-[260px] sm:h-[350px] py-2 md:py-4">
+            <span className="absolute top-2 left-2 md:top-5 md:left-5 bg-brown-light rounded-full p-1">
+              {mainProduct.percent}%
+            </span>
+            <img
+              src={mainProduct.img}
+              alt=""
+              className="w-[140px] md:w-[158px] h-full m-auto"
+            />
+            <div className="absolute bottom-2 md:bottom-5 right-2 md:right-5 bg-brown-medium rounded-full p-1">
+              <svg className="w-6 h-6">
+                <use href="#zoom"></use>
+              </svg>
             </div>
-            <h2>
-              240,000 <span>تومان</span>
-            </h2>
           </div>
-        </div>
+          <div className="flex flex-col justify-between">
+            <h2 className="text-xl md:text-2xl">{mainProduct.title}</h2>
+            <h3 className="text-lg md:text-xl text-brown-medium my-3">
+              ویژگی های محصول
+            </h3>
+            <h4 className="text-sm">
+              <span className="text-brown-medium">جنس محصول: </span>
+              {mainProduct.quality}
+              ۱۰۰٪
+            </h4>
+            <h4 className="text-sm">
+              <span className="text-brown-medium">کارایی: </span>استفاده روزمره
+            </h4>
+            <h4 className="text-sm">
+              <span className="text-brown-medium">اندازه: </span>
+              {mainProduct.volume} گرم
+            </h4>
+            <h4 className="text-sm">
+              <span className="text-brown-medium">نوع محصول: </span>
+              {mainProduct.beand}
+            </h4>
+            <h4 className="text-sm">
+              <span className="text-brown-medium">نوع بسته بندی: </span>
+              {mainProduct.type}
+            </h4>
+            <div className="bg-brown-light flex items-center flex-col sm:flex-row gap-x-2 mt-3 md:mt-0 md:gap-x-3 rounded-md p-1 md:p-2">
+              <div className="flex items-center flex-col sm:flex-row gap-x-1 md:gap-x-3">
+                <button className="bg-brown-medium rounded-lg px-4 py-1 text-white hover:text-brown-dark transition-colors">
+                  افزودن به سبد خرید
+                </button>
+                <div className="flex items-center gap-x-1 my-2 sm:my-0">
+                  <button className="bg-brown-medium rounded-full flex items-center justify-center p-2 w-6 h-6">
+                    <svg className="w-3 h-3">
+                      <use href="#plus"></use>
+                    </svg>
+                  </button>
+                  <span>1</span>
+                  <button className="bg-brown-medium rounded-full flex items-center justify-center p-2 w-6 h-6">
+                    <svg className="w-3 h-1">
+                      <use href="#minus"></use>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              <h2>
+                {mainProduct.newprice} <span>تومان</span>
+              </h2>
+            </div>
+          </div>
+        </div> */}
+      <div className="w-full text-center">
+        <Loader />
       </div>
       <div
         data-aos="zoom-in-right"

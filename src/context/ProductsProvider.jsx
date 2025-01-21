@@ -72,7 +72,7 @@ const reducer = (state, action) => {
   }
 };
 
-function ProductsProvider({ children = null }) {
+function ProductsProvider({ children }) {
   const [products, setProducts] = useState([]);
 
   const [state, dispatch] = useReducer(reducer, initialState);

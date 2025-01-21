@@ -3,8 +3,10 @@ import { Link } from "react-router-dom";
 
 import Heading from "../shared/Heading";
 import ProductBox from "./ProductBox";
+import { useProducts } from "../context/ProductsProvider";
 
-function MostSale({ products, dispatch }) {
+function MostSale() {
+  const [state, dispatch, products] = useProducts()
   return (
     <div className="container mt-[300px]">
       <Heading title="پر فروش ترین محصولات" />
