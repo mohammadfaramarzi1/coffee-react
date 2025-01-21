@@ -1,29 +1,24 @@
 import React, { useEffect } from "react";
 import AOS from "aos";
-
-import "aos/dist/aos.css";
-import { useParams } from "react-router-dom";
 import Loader from "./Loader";
 
-function ProductDetailFeatures({ products, dispatch }) {
-  const { id } = useParams();
+import "aos/dist/aos.css";
 
-  const mainProduct = products.find((product) => product.id === id);
-
+function ProductDetailFeatures({ product, dispatch }) {
   useEffect(() => {
     AOS.init();
   }, []);
   return (
     <>
-      {mainProduct ? (
+      {product ? (
         <div className="container my-10 flex justify-between flex-wrap">
           <div className="flex gap-x-4">
             <div className="relative border border-brwon-dark rounded-md w-[250px] md:w-[350px] h-[260px] sm:h-[350px] py-2 md:py-4">
               <span className="absolute top-2 left-2 md:top-5 md:left-5 bg-brown-light rounded-full p-1">
-                {mainProduct.percent}%
+                {product.percent}%
               </span>
               <img
-                src={mainProduct.img}
+                src={product.img}
                 alt=""
                 className="w-[140px] md:w-[158px] h-full m-auto"
               />
@@ -34,13 +29,13 @@ function ProductDetailFeatures({ products, dispatch }) {
               </div>
             </div>
             <div className="flex flex-col justify-between">
-              <h2 className="text-xl md:text-2xl">{mainProduct.title}</h2>
+              <h2 className="text-xl md:text-2xl">{product.title}</h2>
               <h3 className="text-lg md:text-xl text-brown-medium my-3">
                 ویژگی های محصول
               </h3>
               <h4 className="text-sm">
                 <span className="text-brown-medium">جنس محصول: </span>
-                {mainProduct.quality}
+                {product.quality}
                 ۱۰۰٪
               </h4>
               <h4 className="text-sm">
@@ -49,15 +44,15 @@ function ProductDetailFeatures({ products, dispatch }) {
               </h4>
               <h4 className="text-sm">
                 <span className="text-brown-medium">اندازه: </span>
-                {mainProduct.volume} گرم
+                {product.volume} گرم
               </h4>
               <h4 className="text-sm">
                 <span className="text-brown-medium">نوع محصول: </span>
-                {mainProduct.beand}
+                {product.beand}
               </h4>
               <h4 className="text-sm">
                 <span className="text-brown-medium">نوع بسته بندی: </span>
-                {mainProduct.type}
+                {product.type}
               </h4>
               <div className="bg-brown-light flex items-center flex-col sm:flex-row gap-x-2 mt-3 md:mt-0 md:gap-x-3 rounded-md p-1 md:p-2">
                 <div className="flex items-center flex-col sm:flex-row gap-x-1 md:gap-x-3">
@@ -79,7 +74,7 @@ function ProductDetailFeatures({ products, dispatch }) {
                   </div>
                 </div>
                 <h2>
-                  {mainProduct.newprice} <span>تومان</span>
+                  {product.newprice} <span>تومان</span>
                 </h2>
               </div>
             </div>
