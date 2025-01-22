@@ -11,7 +11,7 @@ function ArticleDetail() {
   return <div>{mainArticle ? (
     <div className="container my-8">
       <h2 className="text-2xl">{mainArticle.title}</h2>
-      <img className="my-5 w-full" src={mainArticle.img} alt={mainArticle.title} />
+      <img className="my-5 w-full rounded-lg" src={mainArticle.img} alt={mainArticle.title} />
       <div className="border border-brown-dark p-3 rounded-md">
         <h3 className="text-brown-medium text-xl">توضیحات:</h3>
         <p className="text-lg text-justify">{mainArticle.desc}</p>

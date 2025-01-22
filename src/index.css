@@ -69,4 +69,8 @@
       transform: rotate(360deg);
     }
   }
+  .about-banner {
+    background: url("/images/5862.jpg");
+    text-align: center;
+  }
 }
