@@ -12,13 +12,7 @@ function ProductsListPage() {
     <div className="container my-10">
       <CategoryList />
       <Search />
-      {products ? (
-        <ProductsList products={products}  />
-      ) : (
-        <div className="w-full text-center mt-16">
-          <Loader />
-        </div>
-      )}
+      {products ? <ProductsList products={products} /> : <Loader />}
     </div>
   );
 }

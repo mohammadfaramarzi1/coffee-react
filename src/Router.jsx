@@ -10,6 +10,7 @@ import RegisterPage from "./pages/RegisterPage";
 import BasketPage from "./pages/BasketPage";
 import ArticlesPage from "./pages/ArticlesPage";
 import ProductDetail from "./components/ProductDetail";
+import ArticlesDetail from "./components/ArticleDetail";
 
 function Router() {
   return (
@@ -23,6 +24,7 @@ function Router() {
       <Route path="/register" element={<RegisterPage />} />
       <Route path="/basket" element={<BasketPage />} />
       <Route path="/articles" element={<ArticlesPage />} />
+      <Route path="/articles/:id" element={<ArticlesDetail />} />
     </Routes>
   );
 }

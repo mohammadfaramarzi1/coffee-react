@@ -25,9 +25,7 @@ function ProductDetail() {
           <ProductDetailSuggest products={products} dispatch={dispatch} />
         </div>
       ) : (
-        <div className="w-full text-center mt-16">
-          <Loader />
-        </div>
+        <Loader />
       )}
     </>
   );

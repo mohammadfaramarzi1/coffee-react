@@ -8,15 +8,17 @@ function ArticlesPage() {
   console.log(articles);
 
   return (
-    <div className="container flex flex-wrap my-16 justify-center gap-3">
+    <>
       {articles.length ? (
-        articles.map((article) => (
-          <ArticleSlider key={article.id} {...article} />
-        ))
+        <div className="container flex flex-wrap my-16 justify-center sm:justify-between gap-y-3 child:ml-[95px] child:sm:ml-0">
+          {articles.map((article) => (
+            <ArticleSlider key={article.id} {...article} />
+          ))}
+        </div>
       ) : (
         <Loader />
       )}
-    </div>
+    </>
   );
 }
 
