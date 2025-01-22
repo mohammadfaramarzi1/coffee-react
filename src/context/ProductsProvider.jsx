@@ -24,13 +24,13 @@ const reducer = (state, action) => {
         state.selectedItems.push({ ...action.payload, quantity: 1 });
       }
       return {
-        selectedItems: state.selectedItems,
+        selectedItems: [...state.selectedItems],
         ...productsActions(state.selectedItems),
         checkout: false,
       };
     }
     case "REMOVE_ITEM": {
-      const newSelectedItems = state.selectedItems(
+      const newSelectedItems = state.selectedItems.filter(
         (item) => item.id !== action.payload.id
       );
       return {

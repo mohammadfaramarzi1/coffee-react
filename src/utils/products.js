@@ -1,13 +1,16 @@
 const productsActions = (products) => {
-  const count = products.selectedItems.reduce(
-    (acc, cur) => acc + cur.quantity,
-    0
-  );
-  const totalPrice = products.selectedItems.reduce(
-    (acc, cur) => acc + cur.price * cur.quantity,
+  const count = products.reduce((acc, cur) => acc + cur.quantity, 0);
+  const totalPrice = products.reduce(
+    (acc, cur) => acc + cur.newprice * cur.quantity,
     0
   );
   return { count, totalPrice };
 };
 
-export { productsActions };
+const calcQuantity = (state, id) => {
+  const index = state.selectedItems.findIndex((item) => item.id === id);
+  if (index === -1) return 0;
+  return state.selectedItems[index].quantity;
+};
+
+export { productsActions, calcQuantity };

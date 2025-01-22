@@ -13,7 +13,7 @@ function ProductsListPage() {
       <CategoryList />
       <Search />
       {products ? (
-        <ProductsList products={products} />
+        <ProductsList products={products}  />
       ) : (
         <div className="w-full text-center mt-16">
           <Loader />

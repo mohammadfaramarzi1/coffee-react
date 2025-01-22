@@ -1,9 +1,15 @@
 import React, { useEffect } from "react";
 import AOS from "aos";
 
+import { calcQuantity } from "../utils/products";
+import { useParams } from "react-router-dom";
+
 import "aos/dist/aos.css";
 
-function ProductDetailFeatures({ product, dispatch }) {
+function ProductDetailFeatures({ state, data, dispatch }) {
+  const { percent, title, img, type, volume, brand, quality, newprice } = data;
+  const { id } = useParams();
+  const quantity = calcQuantity(state, id);
   useEffect(() => {
     AOS.init();
   }, []);
@@ -13,10 +19,10 @@ function ProductDetailFeatures({ product, dispatch }) {
         <div className="flex gap-x-4">
           <div className="relative border border-brwon-dark rounded-md w-[250px] md:w-[350px] h-[260px] sm:h-[350px] py-2 md:py-4">
             <span className="absolute top-2 left-2 md:top-5 md:left-5 bg-brown-light rounded-full p-1">
-              {product.percent}%
+              {percent}%
             </span>
             <img
-              src={product.img}
+              src={img}
               alt=""
               className="w-[140px] md:w-[158px] h-full m-auto"
             />
@@ -27,13 +33,13 @@ function ProductDetailFeatures({ product, dispatch }) {
             </div>
           </div>
           <div className="flex flex-col justify-between">
-            <h2 className="text-xl md:text-2xl">{product.title}</h2>
+            <h2 className="text-xl md:text-2xl">{title}</h2>
             <h3 className="text-lg md:text-xl text-brown-medium my-3">
               ویژگی های محصول
             </h3>
             <h4 className="text-sm">
               <span className="text-brown-medium">جنس محصول: </span>
-              {product.quality}
+              {quality}
               ۱۰۰٪
             </h4>
             <h4 className="text-sm">
@@ -41,37 +47,72 @@ function ProductDetailFeatures({ product, dispatch }) {
             </h4>
             <h4 className="text-sm">
               <span className="text-brown-medium">اندازه: </span>
-              {product.volume} گرم
+              {volume} گرم
             </h4>
             <h4 className="text-sm">
               <span className="text-brown-medium">نوع محصول: </span>
-              {product.beand}
+              {brand}
             </h4>
             <h4 className="text-sm">
               <span className="text-brown-medium">نوع بسته بندی: </span>
-              {product.type}
+              {type}
             </h4>
-            <div className="bg-brown-light flex items-center flex-col sm:flex-row gap-x-2 mt-3 md:mt-0 md:gap-x-3 rounded-md p-1 md:p-2">
+            <div className="bg-brown-light w-[120px] sm:w-[300px] flex items-center flex-col sm:flex-row justify-between gap-x-2 mt-3 md:mt-0 md:gap-x-3 rounded-md p-1 md:p-2">
               <div className="flex items-center flex-col sm:flex-row gap-x-1 md:gap-x-3">
-                <button className="bg-brown-medium rounded-lg px-4 py-1 text-white hover:text-brown-dark transition-colors">
-                  افزودن به سبد خرید
-                </button>
                 <div className="flex items-center gap-x-1 my-2 sm:my-0">
-                  <button className="bg-brown-medium rounded-full flex items-center justify-center p-2 w-6 h-6">
-                    <svg className="w-3 h-3">
-                      <use href="#plus"></use>
-                    </svg>
-                  </button>
-                  <span>1</span>
-                  <button className="bg-brown-medium rounded-full flex items-center justify-center p-2 w-6 h-6">
-                    <svg className="w-3 h-1">
-                      <use href="#minus"></use>
-                    </svg>
-                  </button>
+                  {quantity >= 1 && (
+                    <button
+                      onClick={() =>
+                        dispatch({ type: "INCREASE_ITEM", payload: data })
+                      }
+                      className="bg-brown-medium rounded-full flex items-center justify-center p-2 w-10 h-8"
+                    >
+                      <svg className="w-3 h-3">
+                        <use href="#plus"></use>
+                      </svg>
+                    </button>
+                  )}
+                  {quantity === 0 && (
+                    <button
+                      onClick={() =>
+                        dispatch({ type: "ADD_ITEM", payload: data })
+                      }
+                      className="bg-brown-medium rounded-full flex items-center justify-center p-2 w-10 h-8"
+                    >
+                      <svg className="w-8 h-6">
+                        <use href="#add-cart"></use>
+                      </svg>
+                    </button>
+                  )}
+                  {quantity > 0 && <span>{quantity}</span>}
+                  {quantity > 1 && (
+                    <button
+                      onClick={() =>
+                        dispatch({ type: "DECREMENT_ITEM", payload: data })
+                      }
+                      className="bg-brown-medium rounded-full flex items-center justify-center p-2 w-10 h-8"
+                    >
+                      <svg className="w-1 h-1">
+                        <use href="#minus"></use>
+                      </svg>
+                    </button>
+                  )}
+                  {quantity === 1 && (
+                    <button
+                      onClick={() =>
+                        dispatch({ type: "REMOVE_ITEM", payload: data })
+                      }
+                      className="bg-brown-medium rounded-full flex items-center justify-center p-2 w-10 h-8"
+                    >
+                      <svg className="w-10 h-6">
+                        <use href="#delete-cart"></use>
+                      </svg>
+                    </button>
+                  )}
                 </div>
               </div>
               <h2>
-                {product.newprice} <span>تومان</span>
+                {newprice.toLocaleString()} <span>تومان</span>
               </h2>
             </div>
           </div>

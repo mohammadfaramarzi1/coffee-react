@@ -8,7 +8,7 @@ function ProductDetailSuggest({ products }) {
       <Heading title="مصحولات مرتبط" />
       <div className="flex justify-center sm:justify-between gap-3 flex-wrap my-5">
         {products.slice(0, 4).map((product) => (
-          <ProductBox key={product.id} {...product} />
+          <ProductBox key={product.id} data={product} />
         ))}
       </div>
     </div>

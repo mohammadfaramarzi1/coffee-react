@@ -48,7 +48,7 @@ function SpecialOffers() {
           >
             {products.map((product) => (
               <SwiperSlide key={product.id}>
-                <ProductBox {...product} />
+                <ProductBox data={product} />
               </SwiperSlide>
             ))}
           </Swiper>

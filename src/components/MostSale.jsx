@@ -6,13 +6,13 @@ import ProductBox from "./ProductBox";
 import { useProducts } from "../context/ProductsProvider";
 
 function MostSale() {
-  const [state, dispatch, products] = useProducts()
+  const [state, dispatch, products] = useProducts();
   return (
     <div className="container mt-[300px]">
       <Heading title="پر فروش ترین محصولات" />
       <div className="flex flex-wrap justify-center sm:justify-between gap-5 mt-5">
         {products.slice(0, 6).map((product) => (
-          <ProductBox key={product.id} {...product} />
+          <ProductBox key={product.id} data={product} />
         ))}
       </div>
       <Link

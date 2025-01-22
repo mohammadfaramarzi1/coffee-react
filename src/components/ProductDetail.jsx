@@ -16,7 +16,11 @@ function ProductDetail() {
     <>
       {mainProduct ? (
         <div>
-          <ProductDetailFeatures product={mainProduct} dispatch={dispatch} />
+          <ProductDetailFeatures
+            state={state}
+            data={mainProduct}
+            dispatch={dispatch}
+          />
           <ProductDetailDesc productDesc={mainProduct.desc} />
           <ProductDetailSuggest products={products} dispatch={dispatch} />
         </div>
