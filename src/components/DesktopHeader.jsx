@@ -1,7 +1,10 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
+import { useProducts } from "../context/ProductsProvider";
 
-function DesktopHeader({overlayHandler, cardBasketElem, closeBasketHandler}) {
+function DesktopHeader({ overlayHandler, cardBasketElem, closeBasketHandler }) {
+  const [state] = useProducts();
+
   return (
     <div className="container hidden md:flex justify-between items-center pt-3">
       <Link to="/" className="flex items-center w-[136px] xl:w-[150px]">
@@ -70,7 +73,11 @@ function DesktopHeader({overlayHandler, cardBasketElem, closeBasketHandler}) {
           <svg className="w-5 h-5">
             <use href="#basket"></use>
           </svg>
-          <span className="hidden xl:block text-white">0 تومان</span>
+          {!!state.count && (
+            <span className="absolute hidden bg-brown-light rounded-full w-6 h-6 top-0 -left-3 text-brown-dark xl:flex items-center justify-center">
+              {state.count}
+            </span>
+          )}
         </div>
         <div className="card-basket" ref={cardBasketElem}>
           <button
@@ -79,7 +86,7 @@ function DesktopHeader({overlayHandler, cardBasketElem, closeBasketHandler}) {
           >
             x
           </button>
-          <p>هیچ محصولی در سبد خرید وجود ندارد</p>
+          {state.count ? state.selectedItems.map(item => ) : <p>هیچ محصولی در سبد خرید وجود ندارد</p>}
           <Link
             to="/basket"
             className="block text-center text-brown-medium mt-16 bg-white rounded-lg hover:text-brown-dark transition-colors py-1"

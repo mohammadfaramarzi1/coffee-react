@@ -1,6 +1,7 @@
 import React from "react";
 import { useProducts } from "../context/ProductsProvider";
 import EmptyBasket from "../components/EmptyBasket";
+import ProductBasket from "../components/ProductBasket";
 
 function BasketPage() {
   const [state, dispatch] = useProducts();
@@ -16,13 +17,18 @@ function BasketPage() {
       </div>
       {state.count ? (
         <>
-          <div className="flex justify-between text-xl">
+          <div className="flex justify-between text-xl border-b border-brown-dark pb-5">
             <h4>محصول</h4>
-            <div className="flex gap-x-32">
+            <div className="flex gap-x-12 md:gap-x-32">
               <h4>مبلغ کل</h4>
               <h4>تعداد</h4>
               <h4>مبلغ واحد</h4>
             </div>
+          </div>
+          <div>
+            {state.selectedItems.map((item) => (
+              <ProductBasket key={item.id} data={item} dispatch={dispatch} />
+            ))}
           </div>
         </>
       ) : (
