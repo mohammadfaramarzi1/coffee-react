@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import AOS from "aos";
-import { Typewriter } from "react-simple-typewriter";
 import { Link } from "react-router-dom";
 
 import "aos/dist/aos.css";
@@ -18,12 +17,8 @@ function Banner() {
     >
       <div>
         <h2 className="text-xl md:text-2xl">
-          {/* <span className="text-4xl md:text-6xl text-brown-medium">قهوه</span>{" "}
-          یادت نره */}
-          <span className="text-4xl md:text-6xl text-brown-medium">
-            <Typewriter words={["قهوه"]} />
-          </span>
-          یادت نره
+          <span className="text-4xl md:text-6xl text-brown-medium">قهوه </span>
+           یادت نره 
         </h2>
         <p className="text-xs sm:text-lg md:text-xl my-10">
           بهترین و با کیفیت ترین قهوه ها و اکسسوری ها در میم کافه

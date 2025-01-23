@@ -14,7 +14,7 @@ function Login() {
           <h1 className="text-3xl">میم کافه</h1>
         </Link>
       </div>
-      <div className="mt-32">
+      <div className="mt-16">
         <div className="bg-brown-light w-16 h-16 rounded-full mx-auto">
           <svg className="w-[66px] h-[50px]">
             <use href="#category-coffee"></use>
