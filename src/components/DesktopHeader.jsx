@@ -1,10 +1,13 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
-import { useProducts } from "../context/ProductsProvider";
+import ShortProductBasket from "./ShortProductBasket";
 
-function DesktopHeader({ overlayHandler, cardBasketElem, closeBasketHandler }) {
-  const [state] = useProducts();
-
+function DesktopHeader({
+  overlayHandler,
+  cardBasketElem,
+  closeBasketHandler,
+  state,
+}) {
   return (
     <div className="container hidden md:flex justify-between items-center pt-3">
       <Link to="/" className="flex items-center w-[136px] xl:w-[150px]">
@@ -82,11 +85,19 @@ function DesktopHeader({ overlayHandler, cardBasketElem, closeBasketHandler }) {
         <div className="card-basket" ref={cardBasketElem}>
           <button
             onClick={closeBasketHandler}
-            className="text-brown-medium text-xl bg-white rounded-full px-2 hover:text-brown-dark transition-colors"
+            className="text-brown-medium ml-auto w-[27px] text-xl bg-white rounded-full px-2 hover:text-brown-dark transition-colors"
           >
             x
           </button>
-          {state.count ? state.selectedItems.map(item => ) : <p>هیچ محصولی در سبد خرید وجود ندارد</p>}
+          {state.count ? (
+            state.selectedItems.map((item) => (
+              <ShortProductBasket data={item} key={item.id} isMobile={false} />
+            ))
+          ) : (
+            <p className="text-center mt-5">
+              هیچ محصولی در سبد خرید وجود ندارد
+            </p>
+          )}
           <Link
             to="/basket"
             className="block text-center text-brown-medium mt-16 bg-white rounded-lg hover:text-brown-dark transition-colors py-1"

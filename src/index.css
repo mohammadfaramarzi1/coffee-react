@@ -17,13 +17,18 @@
     @apply block visible opacity-100;
   }
   .card-basket {
-    @apply hidden opacity-0 invisible absolute bg-brown-medium rounded-md top-20 left-3 mx-auto w-48 h-48 p-3 text-white z-20 transition-all delay-75;
+    direction: ltr;
+    @apply hidden flex-col justify-between opacity-0 invisible absolute bg-brown-medium rounded-md top-20 left-3 mx-auto w-48 h-80 overflow-y-scroll [&::-webkit-scrollbar]:w-2
+    [&::-webkit-scrollbar-track]:rounded-full
+    [&::-webkit-scrollbar-track]:bg-gray-100
+    [&::-webkit-scrollbar-thumb]:rounded-full
+    [&::-webkit-scrollbar-thumb]:bg-brown-light p-3 text-white z-20 transition-all delay-75;
   }
   .card-basket--show {
-    @apply block visible opacity-100;
+    @apply flex visible opacity-100;
   }
   .card-basket-mobile {
-    @apply flex flex-col justify-between items-start fixed -left-[233px] top-0 bottom-0 bg-brown-medium h-full text-white p-3 z-20 transition-all delay-75;
+    @apply flex flex-col justify-between items-start fixed -left-[400px] top-0 bottom-0 bg-brown-medium h-full text-white p-3 z-20 transition-all delay-75;
   }
   .card-basket-mobile--show {
     @apply flex left-0;
@@ -42,7 +47,7 @@
     height: 48px;
     border-radius: 50%;
     display: inline-block;
-    border-top: 4px solid #E2DFD5;
+    border-top: 4px solid #e2dfd5;
     border-right: 4px solid transparent;
     box-sizing: border-box;
     animation: rotation 1s linear infinite;
@@ -57,7 +62,7 @@
     height: 48px;
     border-radius: 50%;
     /* border-left: 4px solid #ff3d00; */
-    border-left: 4px solid #B0A27B;
+    border-left: 4px solid #b0a27b;
     border-bottom: 4px solid transparent;
     animation: rotation 0.5s linear infinite reverse;
   }

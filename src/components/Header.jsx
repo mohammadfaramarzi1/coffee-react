@@ -1,12 +1,15 @@
 import React, { useRef } from "react";
 import DesktopHeader from "./DesktopHeader";
 import MobileHeader from "./MobileHeader";
+import { useProducts } from "../context/ProductsProvider";
 
 function Header() {
   const overlayElem = useRef(null);
   const cardBasketElem = useRef(null);
   const cardBasketMobileElem = useRef(null);
   const mobileNavElem = useRef(null);
+
+  const [state] = useProducts();
 
   const overlayHandler = () => {
     overlayElem.current.classList.add("overlay--show");
@@ -47,6 +50,7 @@ function Header() {
         overlayHandler={overlayHandler}
         cardBasketElem={cardBasketElem}
         closeBasketHandler={closeBasketHandler}
+        state={state}
       />
 
       {/* 
@@ -59,6 +63,7 @@ function Header() {
         mobileOverlayHandler={mobileOverlayHandler}
         cardBasketMobileElem={cardBasketMobileElem}
         closeBasketMobileHandler={closeBasketMobileHandler}
+        state={state}
       />
       <div className="overlay" ref={overlayElem}></div>
     </header>

@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
+import ShortProductBasket from "./ShortProductBasket";
 
 function MobileHeader({
   showMobileNavHandler,
@@ -8,6 +9,7 @@ function MobileHeader({
   mobileOverlayHandler,
   cardBasketMobileElem,
   closeBasketMobileHandler,
+  state,
 }) {
   return (
     <div className="flex md:hidden justify-between items-center bg-brown-medium px-4">
@@ -85,7 +87,13 @@ function MobileHeader({
         >
           x
         </button>
-        <p className="mt-4">هیچ محصولی در سبد خرید وجود ندارد.</p>
+        {state.count ? (
+          state.selectedItems.map((item) => (
+            <ShortProductBasket isMobile={true} key={item.id} data={item} />
+          ))
+        ) : (
+          <p className="mt-4">هیچ محصولی در سبد خرید وجود ندارد.</p>
+        )}
         <Link
           to="/basket"
           className="block w-full text-center bg-white rounded-lg py-2 text-brown-medium hover:text-brown-dark transition-colors"
