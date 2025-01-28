@@ -12,6 +12,7 @@ const ProductsContext = createContext();
 
 const initialState = {
   selectedItems: [],
+  buy: [],
   totalPrice: 0,
   count: 0,
   checkout: false,
@@ -27,6 +28,7 @@ const reducer = (state, action) => {
         selectedItems: [...state.selectedItems],
         ...productsActions(state.selectedItems),
         checkout: false,
+        buy: [...state.buy],
       };
     }
     case "REMOVE_ITEM": {
@@ -37,6 +39,7 @@ const reducer = (state, action) => {
         selectedItems: [...newSelectedItems],
         ...productsActions(newSelectedItems),
         checkout: false,
+        buy: [...state.buy],
       };
     }
     case "INCREASE_ITEM": {
@@ -48,6 +51,7 @@ const reducer = (state, action) => {
         selectedItems: [...state.selectedItems],
         ...productsActions(state.selectedItems),
         checkout: false,
+        buy: [...state.buy],
       };
     }
     case "DECREMENT_ITEM": {
@@ -59,12 +63,14 @@ const reducer = (state, action) => {
         selectedItems: [...state.selectedItems],
         ...productsActions(state.selectedItems),
         checkout: false,
+        buy: [...state.buy],
       };
     }
     case "CHECKOUT": {
       return {
         selectedItems: [],
         count: 0,
+        buy: [action.payload],
         totalPrice: 0,
         checkout: true,
       };

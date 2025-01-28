@@ -6,7 +6,7 @@ function EmptyBasket() {
     <div className="my-5">
       <div className="flex items-center justify-center">
         <img
-          src="../../public/images/11518398.jpg"
+          src="/images/11518398.jpg"
           className="w-[400px]"
           alt=""
         />
