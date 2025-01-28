@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
 
 import { useProducts } from "../context/ProductsProvider";
 import EmptyBasket from "../components/EmptyBasket";
@@ -19,11 +20,11 @@ function BasketPage() {
     const name = event.target.name;
     const value = event.target.value.trim();
     setForm((form) => ({ ...form, [name]: value }));
-    console.log(form);
   };
 
   return (
     <div className="container">
+      <ToastContainer position="top-right" autoClose={4000} />
       <div className="my-8 flex items-center gap-x-2">
         <h2 className="text-3xl">سبد خرید</h2>
         <svg className="w-6 h-6">
@@ -58,6 +59,7 @@ function BasketPage() {
           </div>
         </>
       )}
+      {step === 1 && !state.count && <EmptyBasket />}
       {step === 1 && !state.count && <EmptyBasket />}
       {step === 2 && (
         <form
@@ -97,12 +99,14 @@ function BasketPage() {
           ></textarea>
           <div className="flex gap-x-3">
             <button
-              onClick={() =>
+              onClick={() => {
                 dispatch({
                   type: "CHECKOUT",
                   payload: [state.selectedItems, form],
-                })
-              }
+                });
+                setStep(1);
+                toast.success("پرداخت شما با موفقیت انجام شد.");
+              }}
               className="bg-brown-medium text-white hover:text-brown-dark transition-colors rounded-full p-3 mt-3"
             >
               تسویه حساب
