@@ -3,7 +3,11 @@ const addToLocalStorage = (key, value) => {
 };
 
 const getFromLocalStorage = (key) => {
-  JSON.parse(localStorage.getItem(key));
+  return JSON.parse(localStorage.getItem(key));
 };
 
-export { addToLocalStorage, getFromLocalStorage };
+const getItemFromLocalStorage = (key, item) => {
+  return JSON.parse(localStorage.getItem(key))[item];
+};
+
+export { addToLocalStorage, getFromLocalStorage, getItemFromLocalStorage };

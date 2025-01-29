@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 import ShortProductBasket from "./ShortProductBasket";
+import { getFromLocalStorage } from "../utils/localStorage";
+
+let isLogin = null;
 
 function DesktopHeader({
   overlayHandler,
@@ -8,6 +11,9 @@ function DesktopHeader({
   closeBasketHandler,
   state,
 }) {
+  useEffect(() => {
+    isLogin = getFromLocalStorage("user");
+  }, []);
   return (
     <div className="container hidden md:flex justify-between items-center pt-3">
       <Link to="/" className="flex items-center w-[136px] xl:w-[150px]">
@@ -60,15 +66,27 @@ function DesktopHeader({
         </ul>
       </nav>
       <div className="flex gap-x-2 xl:gap-x-4 mr-4 xl:mr-0">
-        <Link
-          to="/login"
-          className="flex gap-x-2 border border-brown-dark rounded-full px-2 py-3 transition-colors hover:bg-brown-dark hover:text-brown-light"
-        >
-          <svg className="w-5 h-5">
-            <use href="#user"></use>
-          </svg>
-          <span className="hidden xl:block">ورود / ثبت نام</span>
-        </Link>
+        {isLogin ? (
+          <Link
+            to="/dashboard"
+            className="flex gap-x-2 border border-brown-dark rounded-full px-2 py-3 transition-colors hover:bg-brown-dark hover:text-brown-light"
+          >
+            <svg className="w-5 h-5">
+              <use href="#user"></use>
+            </svg>
+            <span className="hidden xl:block">حساب کاربری</span>
+          </Link>
+        ) : (
+          <Link
+            to="/login"
+            className="flex gap-x-2 border border-brown-dark rounded-full px-2 py-3 transition-colors hover:bg-brown-dark hover:text-brown-light"
+          >
+            <svg className="w-5 h-5">
+              <use href="#user"></use>
+            </svg>
+            <span className="hidden xl:block">ورود / ثبت نام</span>
+          </Link>
+        )}
         <div
           onClick={overlayHandler}
           className="relative flex items-center gap-x-4 bg-brown-medium rounded-full px-2 cursor-pointer z-20"

@@ -10,6 +10,7 @@ import BasketPage from "./pages/BasketPage";
 import ArticlesPage from "./pages/ArticlesPage";
 import ProductDetail from "./components/ProductDetail";
 import ArticlesDetail from "./components/ArticleDetail";
+import DashboardPage from "./pages/DashboardPage";
 
 function Router() {
   return (
@@ -23,6 +24,7 @@ function Router() {
       <Route path="/basket" element={<BasketPage />} />
       <Route path="/articles" element={<ArticlesPage />} />
       <Route path="/articles/:id" element={<ArticlesDetail />} />
+      <Route path="/dashboard" element={<DashboardPage />} />
     </Routes>
   );
 }

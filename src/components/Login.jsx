@@ -74,7 +74,7 @@ function Register() {
           ثبت نام
         </button>
       </form>
-      <ToastContainer position="top-center" autoClose={2000} />
+      <ToastContainer position="top-right" autoClose={2000} />
     </div>
   );
 }

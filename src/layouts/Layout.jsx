@@ -7,12 +7,13 @@ function Layout({ children }) {
   const location = useLocation();
   const isShowLogin = location.pathname !== "/login";
   const isShowRegister = location.pathname !== "/register";
+  const isShowDashboard = !location.pathname.includes("/dashboard")
 
   return (
     <>
-      {isShowLogin && isShowRegister && <Header />}
+      {isShowLogin && isShowRegister && isShowDashboard && <Header />}
       {children}
-      {isShowLogin && isShowRegister && <Footer />}
+      {isShowLogin && isShowRegister && isShowDashboard && <Footer />}
     </>
   );
 }
