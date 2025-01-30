@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Route, Routes } from "react-router-dom";
 
 import HomePage from "./pages/HomePage";
@@ -16,7 +16,9 @@ import Setting from "./components/Setting";
 import { getItemFromLocalStorage } from "./utils/localStorage";
 
 function Router() {
-  const username = getItemFromLocalStorage("user", "name");
+  const [username, setUsername] = useState(() =>
+    getItemFromLocalStorage("user", "name")
+  );
 
   return (
     <Routes>
@@ -29,10 +31,13 @@ function Router() {
       <Route path="/basket" element={<BasketPage />} />
       <Route path="/articles" element={<ArticlesPage />} />
       <Route path="/articles/:id" element={<ArticlesDetail />} />
-      <Route path="/dashboard" element={<DashboardPage username={username} />} />
       <Route
-        path="/dashobard-setting"
-        element={<Setting username={username} />}
+        path="/dashboard"
+        element={<DashboardPage username={username} />}
+      />
+      <Route
+        path="/dashboard-setting"
+        element={<Setting username={username} setUsername={setUsername} />}
       />
       <Route path="/dashboard-buy" element={<Buy username={username} />} />
     </Routes>
