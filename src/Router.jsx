@@ -11,10 +11,13 @@ import ArticlesPage from "./pages/ArticlesPage";
 import ProductDetail from "./components/ProductDetail";
 import ArticlesDetail from "./components/ArticleDetail";
 import DashboardPage from "./pages/DashboardPage";
-import Buy from "./components/Buy"
-import Setting from "./components/Setting"
+import Buy from "./components/Buy";
+import Setting from "./components/Setting";
+import { getItemFromLocalStorage } from "./utils/localStorage";
 
 function Router() {
+  const username = getItemFromLocalStorage("user", "name");
+
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />
@@ -26,10 +29,12 @@ function Router() {
       <Route path="/basket" element={<BasketPage />} />
       <Route path="/articles" element={<ArticlesPage />} />
       <Route path="/articles/:id" element={<ArticlesDetail />} />
-      <Route path="/dashboard" element={<DashboardPage />} >
-        <Route path="setting" element={<Setting />} />
-        <Route path="buy" element={<Buy />} />
-      </Route>
+      <Route path="/dashboard" element={<DashboardPage username={username} />} />
+      <Route
+        path="/dashobard-setting"
+        element={<Setting username={username} />}
+      />
+      <Route path="/dashboard-buy" element={<Buy username={username} />} />
     </Routes>
   );
 }

@@ -70,7 +70,7 @@ const reducer = (state, action) => {
       return {
         selectedItems: [],
         count: 0,
-        buy: [action.payload],
+        buy: [...state.buy, action.payload],
         totalPrice: 0,
         checkout: true,
       };

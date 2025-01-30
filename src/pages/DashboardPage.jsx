@@ -9,8 +9,7 @@ import { getItemFromLocalStorage } from "../utils/localStorage";
 import DashboardHeader from "../components/DashboardHeader";
 import DashboardSidebar from "../components/DashboardSidebar";
 
-function DashboardPage() {
-  const username = getItemFromLocalStorage("user", "name");
+function DashboardPage({username}) {
   const [chart, setChart] = React.useState({
     series: [
       {
