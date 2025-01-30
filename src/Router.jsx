@@ -11,6 +11,8 @@ import ArticlesPage from "./pages/ArticlesPage";
 import ProductDetail from "./components/ProductDetail";
 import ArticlesDetail from "./components/ArticleDetail";
 import DashboardPage from "./pages/DashboardPage";
+import Buy from "./components/Buy"
+import Setting from "./components/Setting"
 
 function Router() {
   return (
@@ -24,7 +26,10 @@ function Router() {
       <Route path="/basket" element={<BasketPage />} />
       <Route path="/articles" element={<ArticlesPage />} />
       <Route path="/articles/:id" element={<ArticlesDetail />} />
-      <Route path="/dashboard" element={<DashboardPage />} />
+      <Route path="/dashboard" element={<DashboardPage />} >
+        <Route path="setting" element={<Setting />} />
+        <Route path="buy" element={<Buy />} />
+      </Route>
     </Routes>
   );
 }

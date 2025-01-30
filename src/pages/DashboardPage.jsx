@@ -6,10 +6,12 @@ import { IoIosSettings } from "react-icons/io";
 import ReactApexChart from "react-apexcharts";
 
 import { getItemFromLocalStorage } from "../utils/localStorage";
+import DashboardHeader from "../components/DashboardHeader";
+import DashboardSidebar from "../components/DashboardSidebar";
 
 function DashboardPage() {
   const username = getItemFromLocalStorage("user", "name");
-  const [state, setState] = React.useState({
+  const [chart, setChart] = React.useState({
     series: [
       {
         name: "امسال",
@@ -34,6 +36,12 @@ function DashboardPage() {
       },
       xaxis: {
         type: "datetime",
+        labels: {
+          style: {
+            fontSize: "16px", // Change font size
+            fontFamily: "lale",
+          },
+        },
         categories: [
           "2025-09-19T00:00:00.000Z",
           "2025-09-19T01:30:00.000Z",
@@ -44,41 +52,36 @@ function DashboardPage() {
           "2025-09-19T06:30:00.000Z",
         ],
       },
+      yaxis: {
+        labels: {
+          style: {
+            fontSize: "16px", // Change font size
+            fontFamily: "lale",
+          },
+        },
+      },
       tooltip: {
         x: {
           format: "dd/MM/yy HH:mm",
         },
       },
+      theme: {
+        fontFamily: "lale",
+        fontSize: "32px", // Change to your desired font
+      },
     },
   });
   return (
     <div>
-      <header className="fixed top-0 right-0 left-0 bg-brown-medium p-3 text-center">
-        <h1>
-          <span className="text-lg">{username} </span> خوش آمدید❤️
-        </h1>
-      </header>
-      <aside className="fixed  top-0 bottom-0 p-5 child:flex child:items-center child:gap-x-3 child:mt-10 child:text-lg bg-brown-medium">
-        <NavLink to="/dashboard">
-          <FaHome />
-          صفحه اصلی
-        </NavLink>
-        <NavLink to="buy">
-          <IoMdBasket />
-          محصولات خریداری شده
-        </NavLink>
-        <NavLink to="setting">
-          <IoIosSettings />
-          تنظیمات
-        </NavLink>
-      </aside>
+      <DashboardHeader username={username} />
+      <DashboardSidebar />
       <main className="mt-[60px] mr-[220px]">
         <h2 className="text-lg">نمودار خرید محصول توسط شما</h2>
         <div className="mt-10">
           <div id="chart">
             <ReactApexChart
-              options={state.options}
-              series={state.series}
+              options={chart.options}
+              series={chart.series}
               type="area"
               height={350}
             />
