@@ -24,13 +24,13 @@ function Setting({ username, setUsername }) {
     <div>
       <DashboardHeader username={username} />
       <DashboardSidebar />
-      <main className="mt-[60px] mr-[220px]">
+      <main className="mt-[60px] mr-[190px] sm:mr-[220px]">
         <h2 className="text-lg">تنظیمات کاربری</h2>
         <form
           onSubmit={(event) => event.preventDefault()}
           className="mx-auto my-5 border border-brown-dark rounded-md p-5 max-w-[400px]"
         >
-          <div className="flex flex-wrap gap-3 justify-center child:w-[100px] child:sm:w-[150px] child:placeholder:text-sm">
+          <div className="flex flex-wrap gap-3 justify-center child:w-[100px] child:sm:w-[150px] child:placeholder:text-sm child:text-sm">
             <input
               type="text"
               placeholder="نام و نام خانوادگی"

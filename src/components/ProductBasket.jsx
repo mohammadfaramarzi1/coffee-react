@@ -1,4 +1,9 @@
 import React from "react";
+import { IoMdAdd } from "react-icons/io";
+import { MdOutlineNoteAdd } from "react-icons/md";
+import { FaMinus } from "react-icons/fa6";
+import { MdDelete } from "react-icons/md";
+import { GiCancel } from "react-icons/gi";
 
 function ProductBasket({ data, dispatch }) {
   const { img, title, quantity, newprice } = data;
@@ -8,9 +13,9 @@ function ProductBasket({ data, dispatch }) {
       <div className="flex items-center gap-x-3">
         <button
           onClick={() => dispatch({ type: "REMOVE_ITEM", payload: data })}
-          className="bg-brown-medium px-2 rounded-full"
+          className="bg-brown-medium  rounded-full"
         >
-          x
+          <GiCancel />
         </button>
         <img src={img} alt="" className="w-[52px] sm:w-[80px] md:w-[130px]" />
         <h3 className="text-xs sm:text-sm xl:text-lg text-center">{title}</h3>
@@ -29,9 +34,7 @@ function ProductBasket({ data, dispatch }) {
                   }
                   className="bg-brown-medium rounded-full flex items-center justify-center p-2 w-10 h-8"
                 >
-                  <svg className="w-3 h-3">
-                    <use href="#plus"></use>
-                  </svg>
+                  <IoMdAdd />
                 </button>
               )}
               {quantity === 0 && (
@@ -39,9 +42,7 @@ function ProductBasket({ data, dispatch }) {
                   onClick={() => dispatch({ type: "ADD_ITEM", payload: data })}
                   className="bg-brown-medium rounded-full flex items-center justify-center p-2 w-10 h-8"
                 >
-                  <svg className="w-8 h-6">
-                    <use href="#add-cart"></use>
-                  </svg>
+                  <MdOutlineNoteAdd />
                 </button>
               )}
               {quantity > 0 && <span>{quantity}</span>}
@@ -52,9 +53,7 @@ function ProductBasket({ data, dispatch }) {
                   }
                   className="bg-brown-medium rounded-full flex items-center justify-center p-2 w-10 h-8"
                 >
-                  <svg className="w-1 h-1">
-                    <use href="#minus"></use>
-                  </svg>
+                  <FaMinus />
                 </button>
               )}
               {quantity === 1 && (
@@ -64,9 +63,7 @@ function ProductBasket({ data, dispatch }) {
                   }
                   className="bg-brown-medium rounded-full flex items-center justify-center p-2 w-10 h-8"
                 >
-                  <svg className="w-10 h-6">
-                    <use href="#delete-cart"></use>
-                  </svg>
+                  <MdDelete />
                 </button>
               )}
             </div>

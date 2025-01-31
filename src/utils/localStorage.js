@@ -7,7 +7,16 @@ const getFromLocalStorage = (key) => {
 };
 
 const getItemFromLocalStorage = (key, item) => {
-  return JSON.parse(localStorage.getItem(key))[item];
+  const storedData = localStorage.getItem(key)
+  if (!storedData) return null;
+
+  try {
+    const parsedData = JSON.parse(storedData);
+    return parsedData?.[item] ?? null;
+  } catch (error) {
+    console.error("Error parsing JSON from localStorage:", error);
+    return null;
+  }
 };
 
 export { addToLocalStorage, getFromLocalStorage, getItemFromLocalStorage };

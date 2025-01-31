@@ -1,6 +1,7 @@
 import React from "react";
 
 import { Link } from "react-router-dom";
+import { FaLongArrowAltLeft } from "react-icons/fa";
 
 function ArticleSlider({ id, title, createdAt, img }) {
   return (
@@ -13,9 +14,7 @@ function ArticleSlider({ id, title, createdAt, img }) {
           className="flex items-center gap-x-1 text-xs"
         >
           مشاهده بیشتر
-          <svg className="w-5 h-5">
-            <use href="#arrow-left"></use>
-          </svg>
+          <FaLongArrowAltLeft />
         </Link>
         <span className="text-xs">{createdAt}</span>
       </div>

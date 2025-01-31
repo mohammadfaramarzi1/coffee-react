@@ -70,6 +70,7 @@ function DashboardPage({username}) {
       },
     },
   });
+  console.log(username)
   return (
     <div>
       <DashboardHeader username={username} />

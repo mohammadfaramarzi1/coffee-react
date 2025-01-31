@@ -1,4 +1,5 @@
 import React from "react";
+import { IoSearchSharp } from "react-icons/io5";
 
 function Search() {
   return (
@@ -8,10 +9,8 @@ function Search() {
         placeholder="جستجوی محصول..."
         className="bg-brown-medium placeholder-brown-light rounded-md px-4 py-2 outline-none"
       />
-      <button className="bg-brown-medium rounded-md w-10">
-        <svg className="text-brown-light w-8 h-8">
-          <use href="#search"></use>
-        </svg>
+      <button className="bg-brown-medium rounded-md w-10 flex items-center justify-center">
+        <IoSearchSharp className="text-lg" />
       </button>
     </div>
   );

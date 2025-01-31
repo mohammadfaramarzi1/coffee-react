@@ -12,7 +12,7 @@ function Buy({ username }) {
     <div>
       <DashboardHeader username={username} />
       <DashboardSidebar />
-      <main className="mt-[60px] mr-[220px]">
+      <main className="mt-[60px] mr-[190px] sm:mr-[220px]">
         <h2 className="text-lg">لیست محصولات خریداری شده</h2>
         <div>
           {state.buy.length ? (
@@ -34,7 +34,7 @@ function Buy({ username }) {
                           <img
                             src={product.img}
                             alt={product.title}
-                            className="w-[60px] md:w-[150px]"
+                            className="w-[60px] md:w-[100px]"
                           />
                           <h4 className="text-sm md:text-md">
                             {product.title}

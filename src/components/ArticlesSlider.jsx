@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { FaLongArrowAltLeft } from "react-icons/fa";
 
 import ArticleSlider from "./ArticleSlider";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -54,9 +55,7 @@ function ArticlesSlider() {
         className="flex items-center justify-between px-2 mx-auto mt-48 text-white hover:text-brown-dark transition-colors bg-brown-medium h-[50px] w-[210px] rounded-full"
       >
         مشاهده بیشر
-        <svg className="w-6 h-6">
-          <use href="#arrow-left"></use>
-        </svg>
+        <FaLongArrowAltLeft />
       </Link>
     </div>
   );

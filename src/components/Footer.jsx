@@ -1,5 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { FaPhoneAlt } from "react-icons/fa";
+import { FaLocationDot } from "react-icons/fa6";
+import { FaRegClock } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa6";
+import { FaWhatsapp } from "react-icons/fa";
+import { FaTelegram } from "react-icons/fa";
 
 function Footer() {
   return (
@@ -7,9 +13,7 @@ function Footer() {
       <div className="flex justify-between gap-y-5 sm:gap-y-0 flex-wrap border-b border-brown-medium pb-8 mb-8">
         <div className="flex items-center gap-x-2.5">
           <div className="bg-brown-medium w-[70px] h-[70px] rounded-full flex items-center justify-center">
-            <svg className="w-[35px] h-[35px]">
-              <use href="#phone"></use>
-            </svg>
+            <FaPhoneAlt className="text-3xl" />
           </div>
           <div>
             <h5 className="text-md md:text-xl">تلفن تماس</h5>
@@ -18,9 +22,7 @@ function Footer() {
         </div>
         <div className="flex items-center gap-x-2.5">
           <div className="bg-brown-medium w-[70px] h-[70px] rounded-full flex items-center justify-center">
-            <svg className="w-[30px] h-[35px]">
-              <use href="#location"></use>
-            </svg>
+            <FaLocationDot className="text-3xl" />
           </div>
           <div>
             <h5 className="text-md md:text-xl">آدرس</h5>
@@ -29,9 +31,7 @@ function Footer() {
         </div>
         <div className="flex items-center gap-x-2.5">
           <div className="bg-brown-medium w-[70px] h-[70px] rounded-full flex items-center justify-center">
-            <svg className="w-[35px] h-[35px]">
-              <use href="#clock"></use>
-            </svg>
+            <FaRegClock className="text-3xl" />
           </div>
           <div>
             <h5 className="text-md md:text-xl">ساعات کاری:</h5>
@@ -50,19 +50,13 @@ function Footer() {
         </Link>
         <div className="flex justify-between gap-x-5">
           <Link to="https://www.instagram.com/" className="hover:text-brown-medium transition-colors">
-            <svg className="w-6 h-6">
-              <use href="#instagram"></use>
-            </svg>
+            <FaInstagram className="text-xl" />
           </Link>
           <Link to="https://www.whatsapp.com/" className="hover:text-brown-medium transition-colors">
-            <svg className="w-6 h-6">
-              <use href="#whatsapp"></use>
-            </svg>
+            <FaWhatsapp className="text-xl" />
           </Link>
           <Link to="https://telegram.org/" className="hover:text-brown-medium transition-colors">
-            <svg className="w-6 h-6">
-              <use href="#telegram"></use>
-            </svg>
+            <FaTelegram className="text-xl" />
           </Link>
         </div>
       </div>

@@ -1,10 +1,15 @@
 import React, { useEffect } from "react";
 import AOS from "aos";
+import { FaTruckFast } from "react-icons/fa6";
+import { BsBoxSeam } from "react-icons/bs";
+import { BiSupport } from "react-icons/bi";
+import { FaMinus, FaPlus, FaRegMoneyBillAlt } from "react-icons/fa";
 
 import { calcQuantity } from "../utils/products";
 import { useParams } from "react-router-dom";
 
 import "aos/dist/aos.css";
+import { MdDelete, MdOutlineNoteAdd } from "react-icons/md";
 
 function ProductDetailFeatures({ state, data, dispatch }) {
   const { percent, title, img, type, volume, brand, quality, newprice } = data;
@@ -26,11 +31,6 @@ function ProductDetailFeatures({ state, data, dispatch }) {
               alt=""
               className="w-[140px] md:w-[158px] h-full m-auto"
             />
-            <div className="absolute bottom-2 md:bottom-5 right-2 md:right-5 bg-brown-medium rounded-full p-1">
-              <svg className="w-6 h-6">
-                <use href="#zoom"></use>
-              </svg>
-            </div>
           </div>
           <div className="flex flex-col justify-between">
             <h2 className="text-xl md:text-2xl">{title}</h2>
@@ -67,9 +67,7 @@ function ProductDetailFeatures({ state, data, dispatch }) {
                       }
                       className="bg-brown-medium rounded-full flex items-center justify-center p-2 w-10 h-8"
                     >
-                      <svg className="w-3 h-3">
-                        <use href="#plus"></use>
-                      </svg>
+                      <FaPlus className="text-lg" />
                     </button>
                   )}
                   {quantity === 0 && (
@@ -79,9 +77,7 @@ function ProductDetailFeatures({ state, data, dispatch }) {
                       }
                       className="bg-brown-medium rounded-full flex items-center justify-center p-2 w-10 h-8"
                     >
-                      <svg className="w-8 h-6">
-                        <use href="#add-cart"></use>
-                      </svg>
+                      <MdOutlineNoteAdd className="text-lg" />
                     </button>
                   )}
                   {quantity > 0 && <span>{quantity}</span>}
@@ -92,9 +88,7 @@ function ProductDetailFeatures({ state, data, dispatch }) {
                       }
                       className="bg-brown-medium rounded-full flex items-center justify-center p-2 w-10 h-8"
                     >
-                      <svg className="w-1 h-1">
-                        <use href="#minus"></use>
-                      </svg>
+                      <FaMinus className="text-lg" />
                     </button>
                   )}
                   {quantity === 1 && (
@@ -104,9 +98,7 @@ function ProductDetailFeatures({ state, data, dispatch }) {
                       }
                       className="bg-brown-medium rounded-full flex items-center justify-center p-2 w-10 h-8"
                     >
-                      <svg className="w-10 h-6">
-                        <use href="#delete-cart"></use>
-                      </svg>
+                      <MdDelete className="text-lg" />
                     </button>
                   )}
                 </div>
@@ -124,9 +116,7 @@ function ProductDetailFeatures({ state, data, dispatch }) {
         >
           <div className="bg-gray-100 flex items-center justify-center text-center lg:text-right flex-wrap text-zinc-800 w-100px h-[90px] rounded-md gap-x-2 p-1">
             <div>
-              <svg className="w-9 h-8">
-                <use href="#truck"></use>
-              </svg>
+              <FaTruckFast className="text-2xl" />
             </div>
             <div className="flex flex-col">
               <span>شرایط ارسال</span>
@@ -137,9 +127,7 @@ function ProductDetailFeatures({ state, data, dispatch }) {
           </div>
           <div className="bg-gray-100 flex items-center justify-center text-center lg:text-right flex-wrap text-zinc-800 w-100px h-[90px] rounded-md gap-x-2 p-1">
             <div>
-              <svg className="w-9 h-8">
-                <use href="#collect"></use>
-              </svg>
+             <BsBoxSeam className="text-2xl" />
             </div>
             <div className="flex flex-col">
               <span>ضمانت کالا</span>
@@ -150,9 +138,7 @@ function ProductDetailFeatures({ state, data, dispatch }) {
           </div>
           <div className="bg-gray-100 flex items-center justify-center text-center lg:text-right flex-wrap text-zinc-800 w-100px h-[90px] rounded-md gap-x-2 p-1">
             <div>
-              <svg className="w-9 h-8">
-                <use href="#support"></use>
-              </svg>
+              <BiSupport className="text-2xl" />
             </div>
             <div className="flex flex-col">
               <span>پشتیبانی</span>
@@ -163,9 +149,7 @@ function ProductDetailFeatures({ state, data, dispatch }) {
           </div>
           <div className="bg-gray-100 flex items-center justify-center text-center lg:text-right flex-wrap text-zinc-800 w-100px h-[90px] rounded-md gap-x-2 p-1">
             <div>
-              <svg className="w-9 h-8">
-                <use href="#money"></use>
-              </svg>
+              <FaRegMoneyBillAlt className="text-2xl" />
             </div>
             <div className="flex flex-col">
               <span>پرداخت</span>

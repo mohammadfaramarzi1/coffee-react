@@ -11,7 +11,7 @@ function Banner() {
 
   return (
     <div
-      className="container p-28 text-center"
+      className="container px-28 py-10 text-center"
       data-aos="zoom-in-up"
       data-aos-duration="2000"
     >

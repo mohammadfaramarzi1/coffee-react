@@ -11,19 +11,32 @@ function Register() {
   });
 
   const navigate = useNavigate();
+
   const changeHandler = (event) => {
     const name = event.target.name;
     console.log(name);
     const value = event.target.value.trim();
     setForm((form) => ({ ...form, [name]: value }));
   };
+
   const clickHandler = () => {
-    addToLocalStorage("user", form);
-    toast.success("با موفقیت ثبت نام کردید. خوش آمدید");
-    setTimeout(() => {
-      navigate("/");
-    }, 2000);
+    if (
+      form.email.length < 8 ||
+      form.name.length < 3 ||
+      form.password.length < 8
+    ) {
+      toast.error("تعداد کارکترهای وارد شده درست نمیباشد");
+      toast.warning("نام حداقل سه کاراکتر و ایمیل و رمز عبور حداقل 8 کاراکتر");
+      return;
+    } else {
+      addToLocalStorage("user", form);
+      toast.success("با موفقیت ثبت نام کردید. خوش آمدید");
+      setTimeout(() => {
+        navigate("/");
+      }, 2000);
+    }
   };
+
   return (
     <div className="bg-[#FFF8F5] flex flex-col justify-center items-center text-center h-screen">
       <div className="pt-5">

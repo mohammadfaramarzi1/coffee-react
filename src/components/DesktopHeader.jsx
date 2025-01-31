@@ -1,19 +1,17 @@
 import React, { useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 import ShortProductBasket from "./ShortProductBasket";
-import { getFromLocalStorage } from "../utils/localStorage";
-
-let isLogin = null;
+import { FaUser } from "react-icons/fa";
+import { BsBasket3Fill } from "react-icons/bs";
+import { GiCancel } from "react-icons/gi";
 
 function DesktopHeader({
   overlayHandler,
   cardBasketElem,
   closeBasketHandler,
   state,
+  isLogin,
 }) {
-  useEffect(() => {
-    isLogin = getFromLocalStorage("user");
-  }, []);
   return (
     <div className="container hidden md:flex justify-between items-center pt-3">
       <Link to="/" className="flex items-center w-[136px] xl:w-[150px]">
@@ -69,21 +67,17 @@ function DesktopHeader({
         {isLogin ? (
           <Link
             to="/dashboard"
-            className="flex gap-x-2 border border-brown-dark rounded-full px-2 py-3 transition-colors hover:bg-brown-dark hover:text-brown-light"
+            className="flex gap-x-2 items-center border border-brown-dark rounded-full px-2 py-3 transition-colors hover:bg-brown-dark hover:text-brown-light"
           >
-            <svg className="w-5 h-5">
-              <use href="#user"></use>
-            </svg>
+            <FaUser className="text-lg" />
             <span className="hidden xl:block">حساب کاربری</span>
           </Link>
         ) : (
           <Link
             to="/login"
-            className="flex gap-x-2 border border-brown-dark rounded-full px-2 py-3 transition-colors hover:bg-brown-dark hover:text-brown-light"
+            className="flex items-center gap-x-2 border border-brown-dark rounded-full px-2 py-3 transition-colors hover:bg-brown-dark hover:text-brown-light"
           >
-            <svg className="w-5 h-5">
-              <use href="#user"></use>
-            </svg>
+            <FaUser className="text-lg" />
             <span className="hidden xl:block">ورود / ثبت نام</span>
           </Link>
         )}
@@ -91,11 +85,9 @@ function DesktopHeader({
           onClick={overlayHandler}
           className="relative flex items-center gap-x-4 bg-brown-medium rounded-full px-2 cursor-pointer z-20"
         >
-          <svg className="w-5 h-5">
-            <use href="#basket"></use>
-          </svg>
+          <BsBasket3Fill />
           {!!state.count && (
-            <span className="absolute hidden bg-brown-light rounded-full w-6 h-6 top-0 -left-3 text-brown-dark xl:flex items-center justify-center">
+            <span className="absolute bg-brown-light rounded-full w-6 h-6 top-0 -left-3 text-brown-dark flex items-center justify-center">
               {state.count}
             </span>
           )}
@@ -103,9 +95,9 @@ function DesktopHeader({
         <div className="card-basket" ref={cardBasketElem}>
           <button
             onClick={closeBasketHandler}
-            className="text-brown-medium ml-auto w-[27px] text-xl bg-white rounded-full px-2 hover:text-brown-dark transition-colors"
+            className="text-brown-medium ml-auto text-xl bg-white rounded-full  hover:text-brown-dark transition-colors"
           >
-            x
+            <GiCancel />
           </button>
           {state.count ? (
             state.selectedItems.map((item) => (

@@ -1,7 +1,10 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import DesktopHeader from "./DesktopHeader";
 import MobileHeader from "./MobileHeader";
 import { useProducts } from "../context/ProductsProvider";
+import { getFromLocalStorage } from "../utils/localStorage";
+
+let isLogin = null;
 
 function Header() {
   const overlayElem = useRef(null);
@@ -10,6 +13,9 @@ function Header() {
   const mobileNavElem = useRef(null);
 
   const [state] = useProducts();
+  useEffect(() => {
+    isLogin = getFromLocalStorage("user") || null;
+  }, []);
 
   const overlayHandler = () => {
     overlayElem.current.classList.add("overlay--show");
@@ -51,6 +57,7 @@ function Header() {
         cardBasketElem={cardBasketElem}
         closeBasketHandler={closeBasketHandler}
         state={state}
+        isLogin={isLogin}
       />
 
       {/* 
@@ -64,6 +71,7 @@ function Header() {
         cardBasketMobileElem={cardBasketMobileElem}
         closeBasketMobileHandler={closeBasketMobileHandler}
         state={state}
+        isLogin={isLogin}
       />
       <div className="overlay" ref={overlayElem}></div>
     </header>
