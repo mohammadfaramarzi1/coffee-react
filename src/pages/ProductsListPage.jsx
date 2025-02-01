@@ -9,6 +9,7 @@ import { useSearchParams } from "react-router-dom";
 function ProductsListPage() {
   const [state, dispatch, products] = useProducts();
   const [dispalyed, setDisplayed] = useState([]);
+  const [search, setSearch] = useState("")
 
   const [searchParams, setSearchParams] = useSearchParams({});
   const query = {};
@@ -20,7 +21,7 @@ function ProductsListPage() {
   return (
     <div className="container my-10">
       <CategoryList setSearchParams={setSearchParams} />
-      <Search />
+      <Search setSearchParams={setSearchParams} search={search} setSearch={setSearch} />
       {products ? <ProductsList products={products} /> : <Loader />}
     </div>
   );
