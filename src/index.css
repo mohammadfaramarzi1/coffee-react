@@ -79,4 +79,8 @@
     background: url("/images/5862.jpg");
     text-align: center;
   }
+
+  .active {
+    @apply text-[#ebdcad]
+  }
 }
