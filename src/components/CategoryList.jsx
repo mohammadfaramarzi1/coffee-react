@@ -3,7 +3,6 @@ import { BiCategoryAlt } from "react-icons/bi";
 
 function CategoryList({ setQuery }) {
   const categoryRef = useRef(null);
-  console.log(categoryRef);
 
   const clickHandler = (event) => {
     const elem = event.target;

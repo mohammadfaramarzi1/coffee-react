@@ -14,7 +14,7 @@ const calcQuantity = (state, id) => {
 };
 
 const filterProductsByCategory = (products, category) => {
-  if (category === "all") return products;
+  if (!category || category === "all") return products;
   const filteredProducts = products.filter(
     (product) => product.slug === category
   );
@@ -22,11 +22,34 @@ const filterProductsByCategory = (products, category) => {
 };
 
 const filterProductsBySearch = (products, search) => {
-  if (!search) return products;
+  if (search === "") return products;
   const filteredProducts = products.filter((product) =>
     product.title.includes(search)
   );
   return filteredProducts;
 };
 
-export { productsActions, calcQuantity, filterProductsByCategory, filterProductsBySearch };
+const handleQuery = (oldQuery, newQuery) => {
+  if (newQuery.search === "") {
+    const { search, ...rest } = oldQuery;
+    return rest;
+  }
+
+  if (newQuery.category === "all") {
+    const { category, ...rest } = oldQuery;
+    return rest;
+  }
+
+  return {
+    ...oldQuery,
+    ...newQuery,
+  };
+};
+
+export {
+  productsActions,
+  calcQuantity,
+  filterProductsByCategory,
+  filterProductsBySearch,
+  handleQuery
+};
