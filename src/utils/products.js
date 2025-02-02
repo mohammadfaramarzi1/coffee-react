@@ -22,7 +22,7 @@ const filterProductsByCategory = (products, category) => {
 };
 
 const filterProductsBySearch = (products, search) => {
-  if (search === "") return products;
+  if (!search) return products;
   const filteredProducts = products.filter((product) =>
     product.title.includes(search)
   );
@@ -35,7 +35,7 @@ const handleQuery = (oldQuery, newQuery) => {
     return rest;
   }
 
-  if (newQuery.category === "all") {
+  if (newQuery.category === "all" || newQuery.category === undefined) {
     const { category, ...rest } = oldQuery;
     return rest;
   }
@@ -51,5 +51,5 @@ export {
   calcQuantity,
   filterProductsByCategory,
   filterProductsBySearch,
-  handleQuery
+  handleQuery,
 };

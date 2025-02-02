@@ -1,35 +1,66 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import DesktopHeader from "./DesktopHeader";
 import MobileHeader from "./MobileHeader";
 import { useProducts } from "../context/ProductsProvider";
 import { getFromLocalStorage } from "../utils/localStorage";
+import { useLocation } from "react-router-dom";
 
 let isLogin = null;
 
 function Header() {
+  const [isOpen, setIsOpen] = useState(false);
   const overlayElem = useRef(null);
   const cardBasketElem = useRef(null);
   const cardBasketMobileElem = useRef(null);
   const mobileNavElem = useRef(null);
+  const location = useLocation();
 
   const [state] = useProducts();
   useEffect(() => {
     isLogin = getFromLocalStorage("user") || null;
   }, []);
 
+  useEffect(() => {
+    setIsOpen(false);
+    if (overlayElem.current) {
+      overlayElem.current.classList.remove("overlay--show");
+    }
+    if (cardBasketElem.current) {
+      cardBasketElem.current.classList.remove("card-basket--show");
+    }
+    if (cardBasketMobileElem.current) {
+      cardBasketMobileElem.current.classList.remove("card-basket-mobile--show");
+    }
+    if (mobileNavElem.current) {
+      mobileNavElem.current.classList.remove("mobile-nav--show");
+    }
+  }, [location.pathname]);
+
   const overlayHandler = () => {
-    overlayElem.current.classList.add("overlay--show");
-    cardBasketElem.current.classList.add("card-basket--show");
+    setIsOpen(true);
+    if (overlayElem.current) {
+      overlayElem.current.classList.add("overlay--show");
+    }
+    setIsOpen(true);
+    if (cardBasketElem.current) {
+      cardBasketElem.current.classList.add("card-basket--show");
+    }
   };
 
   const mobileOverlayHandler = () => {
+    setIsOpen(true);
     overlayElem.current.classList.add("overlay--show");
     cardBasketMobileElem.current.classList.add("card-basket-mobile--show");
   };
 
   const closeBasketHandler = () => {
-    overlayElem.current.classList.remove("overlay--show");
-    cardBasketElem.current.classList.remove("card-basket--show");
+    setIsOpen(false);
+    if (cardBasketElem.current) {
+      cardBasketElem.current.classList.remove("card-basket--show");
+    }
+    if (overlayElem.current) {
+      overlayElem.current.classList.remove("overlay--show");
+    }
   };
 
   const closeBasketMobileHandler = () => {

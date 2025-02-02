@@ -12,26 +12,36 @@ import {
 
 function ProductsListPage() {
   const [state, dispatch, products] = useProducts();
-  if (!products.length) return <Loader />;
 
-  const [dispalyed, setDisplayed] = useState([]);
+  const [allProducts, setAllProducts] = useState([]);
   const [search, setSearch] = useState("");
   const [query, setQuery] = useState({});
 
   const [searchParams, setSearchParams] = useSearchParams({});
 
-  console.log(dispalyed);
+  console.log(allProducts);
 
   useEffect(() => {
-    setDisplayed(products);
-  }, []);
+    if (products.length) {
+      setAllProducts(products);
+    }
+  }, [products]);
 
   useEffect(() => {
     setSearchParams(query);
-    // let filtredProducts = filterProductsBySearch(dispalyed, query.search);
-    // filtredProducts = filterProductsByCategory(filtredProducts, query.category);
-    // setDisplayed(filtredProducts);
+    let filteredProducts = filterProductsBySearch(products, query.search);
+    filteredProducts = filterProductsByCategory(
+      filteredProducts,
+      query.category
+    );
+    setAllProducts(filteredProducts);
   }, [query]);
+
+  if (!products.length) {
+    return <Loader />;
+  }
+
+  if (!products.length) return <Loader />;
 
   console.log(query);
 
@@ -39,7 +49,7 @@ function ProductsListPage() {
     <div className="container my-10">
       <CategoryList setQuery={setQuery} />
       <Search search={search} setSearch={setSearch} setQuery={setQuery} />
-      <ProductsList products={dispalyed} />
+      <ProductsList products={allProducts} />
     </div>
   );
 }

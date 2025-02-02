@@ -12,7 +12,6 @@ function ProductBox({ data }) {
   const { id, title, percent, img, preprice, newprice, brand } = data;
   const [state, dispatch, products] = useProducts();
   const quantity = calcQuantity(state, id);
-  console.log(state);
 
   return (
     <div className="border border-brown-dark w-[260px] sm:w-[200px] bg-white text-brown-dark rounded-md pt-10 pb-3 px-6">

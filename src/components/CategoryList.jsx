@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import { BiCategoryAlt } from "react-icons/bi";
+import { handleQuery } from "../utils/products";
 
 function CategoryList({ setQuery }) {
   const categoryRef = useRef(null);
@@ -17,7 +18,7 @@ function CategoryList({ setQuery }) {
     });
     elem.classList.add("active");
     elem.classList.remove("text-white");
-    setQuery((query) => ({ ...query, category: elem.dataset.cat }));
+    setQuery((query) => handleQuery(query, { category: elem.dataset.cat }));
   };
 
   return (

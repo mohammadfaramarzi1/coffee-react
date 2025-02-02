@@ -1,10 +1,10 @@
 import React from "react";
 import { IoSearchSharp } from "react-icons/io5";
+import { handleQuery } from "../utils/products";
 
 function Search({ setQuery, search, setSearch }) {
   const clickHandler = () => {
-    if (!search.length) return;
-    setQuery((query) => ({ ...query, search }));
+    setQuery((query) => handleQuery(query, { search }));
   };
 
   return (
