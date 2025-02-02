@@ -5,10 +5,9 @@ import { useProducts } from "../context/ProductsProvider";
 import { getFromLocalStorage } from "../utils/localStorage";
 import { useLocation } from "react-router-dom";
 
-let isLogin = null;
-
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isLogin, setIsLogin] = useState(null);
   const overlayElem = useRef(null);
   const cardBasketElem = useRef(null);
   const cardBasketMobileElem = useRef(null);
@@ -17,7 +16,7 @@ function Header() {
 
   const [state] = useProducts();
   useEffect(() => {
-    isLogin = getFromLocalStorage("user") || null;
+    setIsLogin(() => getFromLocalStorage("user"));
   }, []);
 
   useEffect(() => {
