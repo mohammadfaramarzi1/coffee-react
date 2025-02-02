@@ -35,7 +35,7 @@ const handleQuery = (oldQuery, newQuery) => {
     return rest;
   }
 
-  if (newQuery.category === "all" || newQuery.category === undefined) {
+  if (newQuery.category === "all") {
     const { category, ...rest } = oldQuery;
     return rest;
   }

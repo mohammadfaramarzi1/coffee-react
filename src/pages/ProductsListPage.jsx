@@ -19,8 +19,6 @@ function ProductsListPage() {
 
   const [searchParams, setSearchParams] = useSearchParams({});
 
-  console.log(allProducts);
-
   useEffect(() => {
     if (products.length) {
       setAllProducts(products);
@@ -37,13 +35,8 @@ function ProductsListPage() {
     setAllProducts(filteredProducts);
   }, [query]);
 
-  if (!products.length) {
-    return <Loader />;
-  }
-
-  if (!products.length) return <Loader />;
-
   console.log(query);
+  if (!products.length) return <Loader />;
 
   return (
     <div className="container my-10">
