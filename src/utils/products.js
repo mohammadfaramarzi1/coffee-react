@@ -13,4 +13,12 @@ const calcQuantity = (state, id) => {
   return state.selectedItems[index].quantity;
 };
 
-export { productsActions, calcQuantity };
+const filterProductsByCategory = (products, category) => {
+  if (query.category === "all") return products;
+  const filteredProducts = products.filter(
+    (product) => product.slug === category
+  );
+  return filteredProducts;
+};
+
+export { productsActions, calcQuantity, filterProductsByCategory };

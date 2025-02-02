@@ -1,26 +1,24 @@
 import React, { useRef } from "react";
 import { BiCategoryAlt } from "react-icons/bi";
 
-function CategoryList({ setSearchParams }) {
+function CategoryList({ setQuery }) {
   const categoryRef = useRef(null);
   console.log(categoryRef);
 
   const clickHandler = (event) => {
     const elem = event.target;
     const tagName = elem.tagName;
-    console.log(categoryRef.current.childNodes);
     if (!tagName === "LI") return;
 
     categoryRef.current.childNodes.forEach((item) => {
       if (item.classList.contains("active")) {
         item.classList.remove("active");
         item.classList.add("text-white");
-        console.log(categoryRef.current.childNodes);
       }
     });
     elem.classList.add("active");
     elem.classList.remove("text-white");
-    setSearchParams(elem.dataset.cat);
+    setQuery((query) => ({ ...query, category: elem.dataset.cat }));
   };
 
   return (

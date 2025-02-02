@@ -5,24 +5,34 @@ import Search from "../components/Search";
 import { useProducts } from "../context/ProductsProvider";
 import Loader from "../components/Loader";
 import { useSearchParams } from "react-router-dom";
+import { filterProductsByCategory } from "../utils/products";
 
 function ProductsListPage() {
   const [state, dispatch, products] = useProducts();
+
+  if (!products.length) return <Loader />;
+
   const [dispalyed, setDisplayed] = useState([]);
-  const [search, setSearch] = useState("")
+  const [search, setSearch] = useState("");
+  const [query, setQuery] = useState({});
 
   const [searchParams, setSearchParams] = useSearchParams({});
-  const query = {};
 
   useEffect(() => {
     setDisplayed(products);
   }, []);
 
+  useEffect(() => {
+    setSearchParams(query || "");
+    const filtredProducts = filterProductsByCategory(dispalyed, query.category);
+    
+  }, [query]);
+
   return (
     <div className="container my-10">
-      <CategoryList setSearchParams={setSearchParams} />
-      <Search setSearchParams={setSearchParams} search={search} setSearch={setSearch} />
-      {products ? <ProductsList products={products} /> : <Loader />}
+      <CategoryList setQuery={setQuery} />
+      <Search search={search} setSearch={setSearch} setQuery={setQuery} />
+      <ProductsList products={dispalyed} />
     </div>
   );
 }
