@@ -14,11 +14,19 @@ const calcQuantity = (state, id) => {
 };
 
 const filterProductsByCategory = (products, category) => {
-  if (query.category === "all") return products;
+  if (category === "all") return products;
   const filteredProducts = products.filter(
     (product) => product.slug === category
   );
   return filteredProducts;
 };
 
-export { productsActions, calcQuantity, filterProductsByCategory };
+const filterProductsBySearch = (products, search) => {
+  if (!search) return products;
+  const filteredProducts = products.filter((product) =>
+    product.title.includes(search)
+  );
+  return filteredProducts;
+};
+
+export { productsActions, calcQuantity, filterProductsByCategory, filterProductsBySearch };
