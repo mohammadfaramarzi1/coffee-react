@@ -30,31 +30,40 @@ function Setting({ username, setUsername }) {
           onSubmit={(event) => event.preventDefault()}
           className="mx-auto my-5 border border-brown-dark rounded-md p-5 max-w-[400px]"
         >
-          <div className="flex flex-wrap gap-3 justify-center child:w-[100px] child:sm:w-[150px] child:placeholder:text-sm child:text-sm">
-            <input
-              type="text"
-              placeholder="نام و نام خانوادگی"
-              className="border border-brown-dark rounded-md p-2"
-              value={form.name}
-              onChange={(event) => changeHandler(event)}
-              name="name"
-            />
-            <input
-              type="text"
-              placeholder="ایمیل"
-              className="border border-brown-dark rounded-md p-2"
-              value={form.email}
-              onChange={(event) => changeHandler(event)}
-              name="email"
-            />
-            <input
-              type="text"
-              placeholder="رمز عبور"
-              className="border border-brown-dark rounded-md p-2"
-              value={form.password}
-              onChange={(event) => changeHandler(event)}
-              name="password"
-            />
+          <div className="flex flex-wrap gap-3 justify-center child:flex child:items-center child:justify-between child:w-full child:gap-x-3 child:placeholder:text-sm child:text-sm">
+            <div>
+              <span className="text-xs sm:text-lg">نام و نام خانوادگی: </span>
+              <input
+                type="text"
+                placeholder="نام و نام خانوادگی"
+                className="border border-brown-dark rounded-md p-2"
+                value={form.name}
+                onChange={(event) => changeHandler(event)}
+                name="name"
+              />
+            </div>
+            <div>
+              <span className="text-xs sm:text-lg">ایمیل: </span>
+              <input
+                type="text"
+                placeholder="ایمیل"
+                className="border border-brown-dark rounded-md p-2"
+                value={form.email}
+                onChange={(event) => changeHandler(event)}
+                name="email"
+              />
+            </div>
+            <div>
+              <span className="text-xs sm:text-lg">رمز عبور: </span>
+              <input
+                type="text"
+                placeholder="رمز عبور"
+                className="border border-brown-dark rounded-md p-2"
+                value={form.password}
+                onChange={(event) => changeHandler(event)}
+                name="password"
+              />
+            </div>
           </div>
           <button
             onClick={clickHandler}
