@@ -15,7 +15,6 @@ function BasketPage() {
   });
   const [state, dispatch] = useProducts();
   const [step, setStep] = useState(1);
-  console.log(state);
 
   const changeHandler = (event) => {
     const name = event.target.name;

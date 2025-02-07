@@ -7,7 +7,6 @@ function Search({ setQuery, search, setSearch }) {
     setQuery((query) => handleQuery(query, { search }));
   };
 
-  console.log(search)
 
   return (
     <div className="mb-10 mt-5 flex gap-x-2">

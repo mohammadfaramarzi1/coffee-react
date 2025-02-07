@@ -14,7 +14,6 @@ function Register() {
 
   const changeHandler = (event) => {
     const name = event.target.name;
-    console.log(name);
     const value = event.target.value.trim();
     setForm((form) => ({ ...form, [name]: value }));
   };

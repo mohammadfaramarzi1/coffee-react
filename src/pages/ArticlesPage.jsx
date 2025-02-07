@@ -5,7 +5,6 @@ import Loader from "../components/Loader";
 
 function ArticlesPage() {
   const articles = useContext(ArticlesContext);
-  console.log(articles);
 
   return (
     <>

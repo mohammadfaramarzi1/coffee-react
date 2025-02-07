@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 
 function Buy({ username }) {
   const [state] = useProducts();
-  console.log(state);
 
   return (
     <div>

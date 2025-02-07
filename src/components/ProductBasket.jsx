@@ -7,7 +7,6 @@ import { GiCancel } from "react-icons/gi";
 
 function ProductBasket({ data, dispatch }) {
   const { img, title, quantity, newprice } = data;
-  console.log(data);
   return (
     <div className="my-6 flex items-center justify-between gap-x-8">
       <div className="flex items-center gap-x-3">

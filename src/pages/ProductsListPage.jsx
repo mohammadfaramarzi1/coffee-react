@@ -35,7 +35,6 @@ function ProductsListPage() {
     setAllProducts(filteredProducts);
   }, [query]);
 
-  console.log(query);
   if (!products.length) return <Loader />;
 
   return (
